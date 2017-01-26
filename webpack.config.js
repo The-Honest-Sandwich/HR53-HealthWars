@@ -3,21 +3,22 @@ var path = require('path');
 
 module.exports = {
   devtool: 'inline-source-map',
-  entry: './public/client',
+  entry: path.join(__dirname, 'public/client/index.js'),
   output: {
     path: path.join(__dirname, 'public/build'),
     filename: 'bundle.js',
+    publicPath: '/build'
   },
   resolve: {
     modulesDirectories: ['node_modules', 'src'],
-    extensions: ['', '.js'],
+    extensions: ['', '.js', '.jsx', '.css'],
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel?presets[]=react,presets[]=es2015']
+        loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
       }
     ]
   },
