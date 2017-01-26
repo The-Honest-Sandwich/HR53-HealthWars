@@ -1,0 +1,30 @@
+{
+  "name": "healthwars",
+  "version": "1.0.0",
+  "description": "app for health competitions",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Honest-Sandwich/HR53-HealthWars.git"
+  },
+  "keywords": [
+    "health",
+    "tracker"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Honest-Sandwich/HR53-HealthWars/issues"
+  },
+  "homepage": "https://github.com/The-Honest-Sandwich/HR53-HealthWars#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.7.8",
+    "node": "0.0.0",
+    "nodemon": "^1.11.0"
+  }
+}
