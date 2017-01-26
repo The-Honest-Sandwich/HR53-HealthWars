@@ -1,0 +1,41 @@
+{
+  "name": "healthwars",
+  "version": "1.0.0",
+  "description": "app for health competitions",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js --exec babel-node presets es2015"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Honest-Sandwich/HR53-HealthWars.git"
+  },
+  "keywords": [
+    "health",
+    "tracker"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Honest-Sandwich/HR53-HealthWars/issues"
+  },
+  "homepage": "https://github.com/The-Honest-Sandwich/HR53-HealthWars#readme",
+  "dependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.8",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2",
+    "webpack": "^1.14.0",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.15.0"
+  }
+}
