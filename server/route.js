@@ -7,7 +7,6 @@ var app = express();
 var compiler = webpack(webpackConfig);
 var app = express();
 
-app.use(express.static('public'));
 
 app.use(require("webpack-hot-middleware")(compiler));
 // app.use(bodyParser.json());
@@ -17,10 +16,11 @@ app.use(require("webpack-dev-middleware")(compiler, {
     noInfo: true, publicPath: webpackConfig.output.publicPath
 }));
 
+app.use(express.static('public'));
 
 
-app.get('/', function(req, res) {
-  res.send('Hello!');
-})
+// app.get('/', function(req, res) {
+//   res.send('Hello!');
+// })
 
 module.exports = app;
