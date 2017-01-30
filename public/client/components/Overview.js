@@ -1,6 +1,8 @@
 import React from 'react';
 import UserTotal from './UserTotal.js';
 
+// TEMPORARY STUB DATA FOR GENERATING USER TOTALS
+
 const data = [
   {name: 'John Smith', team: 'Monkeys', total: 22},
   {name: 'Alex Smith', team: 'Monkeys', total: 15},
