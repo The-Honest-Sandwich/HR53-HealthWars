@@ -9,7 +9,7 @@ export default class UserTotal extends React.Component {
     return (
       <tr>
         <td>{this.props.name}</td>
-        <td>{this.props.organization}</td>
+        <td>{this.props.team}</td>
         <td>{this.props.total}</td>
       </tr>
     )
