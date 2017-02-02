@@ -7,9 +7,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        Components will go here.
         <NavigationBar />
-        <Overview />
+        {this.props.children}
       </div>
     )
   }
