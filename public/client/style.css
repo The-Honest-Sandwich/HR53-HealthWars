@@ -1,3 +1,12 @@
+html {
+	background-color: #098e7d;
+}
+
+body {
+	background-color: #098e7d;
+	color: #ddd;
+}
+
 .Week {
 	float: left;
 	height: 50px;
@@ -5,7 +14,7 @@
 }
 
 .weekDates {
-	width: 100	px;
+	width: 100px;
 	height: 50px;
 	float:left;
 }
@@ -32,13 +41,17 @@
 	float:left;
 }
 
-.btn-info {
+.btn-warning {
   width: 70px;
   height: 70px;
   padding: 10px 16px;
   font-size: 24px;
   line-height: 1.33;
   border-radius: 35px;
+}
+
+.btn-danger {
+	margin-top: 20px;	
 }
 
 .unit-display {
@@ -56,9 +69,45 @@
 	border-top: none;
 }
 
+th {
+	font-size: 24px;
+}
+
 .texttd {
+	font-size: 18px;
+	padding: 6px;
 	text-align: left;
 }
 
+.navbar-default {
+  background-color: #2a445f;
+  border-color: #252e54;
+}
+
+.navbar-default .navbar-nav>li>a {
+  font-size: 18px;
+  color: #ddd;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #16d6bd;
+}
+
+.navbar-default .navbar-nav>li>a:focus {
+	color: #fff;
+}
+
+.navbar-default .navbar-brand {
+    color: #ddd;
+    font-size: 22px;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #16d6bd;
+}
+
+.navbar-default .navbar-brand:focus {
+    color: #fff;
+}
 
 
