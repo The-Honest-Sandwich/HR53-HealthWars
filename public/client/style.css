@@ -25,12 +25,36 @@
 	width: 100;
 }
 .star {
-	width: 50px;
 	float:left;
 }
 
 .stars {
-	width: 50px;
 	float:left;
 }
+
+.btn-info {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+.unit-display {
+	font-size: 80px;
+}
+
+.table {
+  width: 65%;
+  margin: 0px auto;
+  float: none;
+}
+
+.table>tbody>tr>td {
+	vertical-align: inherit;
+	border-top: none;
+}
+
+
 
