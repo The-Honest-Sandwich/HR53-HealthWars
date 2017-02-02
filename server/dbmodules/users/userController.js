@@ -6,34 +6,37 @@ var createUser = Q.nbind(User.create, User);
 var findUsers = Q.nbind(User.find, User);
 
 module.exports = {
+
   newUser : function(req, res, next) {
     return createUser(req.body).then(function(user) {
       if (user) {
-        res.json(user)
+        res.json(user);
       } 
-      next()
+      next();
     }).fail(function(err){
       next(err);
     });
   },
+
   getUsers : function(req, res, next) {
     return findUsers(req.body).then(function(users){
       if(users) {
-        res.json(users)
+        res.json(users);
       }
-      next()
+      next();
     }).fail(function(err){
-      next(err)
+      next(err);
     });
   },
+  
   getUser : function(req, res, next) {
     return findUser(req.body).then(function(user){
       if(user) {
-        res.json(user)
+        res.json(user);
       }
-      next()
+      next();
     }).fail(function(err){
-      next(err)
+      next(err);
     });
   }
 
