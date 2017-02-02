@@ -1,0 +1,36 @@
+.Week {
+	float: left;
+	height: 50px;
+	width: 2000px;
+}
+
+.weekDates {
+	width: 100	px;
+	height: 50px;
+	float:left;
+}
+
+#UserView {
+	float: left;
+}
+
+#UserDescription {
+	float:left;
+}
+
+#userpic {
+	width: 75;
+}
+#username {
+	width: 100;
+}
+.star {
+	width: 50px;
+	float:left;
+}
+
+.stars {
+	width: 50px;
+	float:left;
+}
+

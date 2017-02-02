@@ -18,6 +18,7 @@ app.use(require("webpack-dev-middleware")(compiler, {
 
 app.use(express.static('public'));
 
+app.get('/user')
 
 // app.get('/', function(req, res) {
 //   res.send('Hello!');
