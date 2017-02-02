@@ -59,7 +59,7 @@ export default class Overview extends React.Component {
   render() {
     return (
       <div id='overview'>
-        <div class='overview-header'>
+        <div className='overview-header'>
           Organization Totals
         </div>
         <table>
