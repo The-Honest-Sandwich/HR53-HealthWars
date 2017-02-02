@@ -30,9 +30,9 @@ export default class LoggingExercise extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="text-center">
         <div>{ this.state.exercise }</div>
-        <table>
+        <table className="table">
           <tbody>
             <tr>
               <td><ChangeUnits onClick={this.unitChange} type={'-'} /></td>
