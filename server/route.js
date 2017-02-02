@@ -18,10 +18,27 @@ app.use(require("webpack-dev-middleware")(compiler, {
 
 app.use(express.static('public'));
 
-app.get('/user')
+// ================================
+// DATA API ENDPOINT ROUTING
+// ================================
 
-// app.get('/', function(req, res) {
-//   res.send('Hello!');
-// })
+// Controller Dependencies
+
+var userController = require('./dbmodules/users/userController');
+var roundController = require('./dbmodules/rounds/roundController');
+var exerciseController = require('./dbmodules/exercises/exerciseController');
+var achievementController = require('./dbmodules/achievement/achievementController');
+
+// Get all users
+app.get('/api/users', userController.getUsers);
+
+// Add a new user
+app.post('/api/users', userController.newUser);
+
+
+app.post('/submitUnits', function(req, res) {
+  console.log('POST request received on url submitUnits')
+  res.end('');
+});
 
 module.exports = app;

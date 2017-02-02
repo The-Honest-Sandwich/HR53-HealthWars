@@ -6,11 +6,12 @@ var roundSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  
   exercise: {
     type: String,
     required: true
   }
 
-})
+});
 
 module.exports = mongoose.model( 'Round', roundSchema);
