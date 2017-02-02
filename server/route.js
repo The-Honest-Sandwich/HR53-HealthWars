@@ -18,6 +18,10 @@ app.use(require("webpack-dev-middleware")(compiler, {
 
 app.use(express.static('public'));
 
+app.post('/submitUnits', function(req, res) {
+  console.log('POST request received on url submitUnits')
+  res.end('');
+})
 
 // app.get('/', function(req, res) {
 //   res.send('Hello!');
