@@ -6,6 +6,7 @@ import App from './components/App';
 import LoggingExercise from './components/exercise/LoggingExercise';
 import UserView from './components/userView/UserView';
 import Overview from './components/overview/Overview';
+import Dashboard from './components/adminDashboard/Dashboard';
   
 render((
   <Router history={hashHistory}>
@@ -13,6 +14,7 @@ render((
       <Route path="/user" component={UserView}/>
       <Route path="/overview" component={Overview}/>
       <Route path="/exercise" component={LoggingExercise}/>
+      <Route path="/admin" component={Dashboard} />
     </Route>
   </Router>
 ), document.getElementById('app'))
