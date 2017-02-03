@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Push-ups",
+    "unit": "10",
+    "description": "Plank position, hands a little wider than shoulder width.  On knees OK."
+  },
+  {
+    "name": "Pull-ups",
+    "unit": "5",
+    "description": "Hands wider than shoulders, chin to bar."
+  },
+  {
+    "name": "Planks",
+    "unit": "1 minute",
+    "description": "On forearms, straight back & butt, on balls of feet."
+  },
+  {
+    "name": "Run up & down stairs",
+    "unit": "Once up and down, round-trip",
+    "description": "All 8 flights of stairs, each way."
+  },
+  {
+    "name": "Jumping Jacks",
+    "unit": "20",
+    "description": "Arms to at least 45 degrees upwards"
+  }
+]
