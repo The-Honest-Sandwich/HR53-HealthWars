@@ -74,7 +74,7 @@ app.post('/api/exercises', exerciseController.newExercise);
 
 
 app.post('/submitUnits', function(req, res) {
-  console.log('POST request received on url submitUnits')
+  console.log('POST request received on url submitUnits');
   res.end('');
 });
 

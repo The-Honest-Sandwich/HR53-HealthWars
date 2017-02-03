@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Winner - Week 1",
+    "id": "ach-winner-1",
+    "image": "http://images.clipartpanda.com/trophy-clipart-RcA7Kj9pi.gif",
+    "description": "Top performer of week 1."
+  },
+  {
+    "name": "Winner - Week 2",
+    "id": "ach-winner-2",
+    "image": "http://images.clipartpanda.com/trophy-clipart-RcA7Kj9pi.gif",
+    "description": "Top performer of week 2."
+  },
+  {
+    "name": "Winner - Week 3",
+    "id": "ach-winner-3",
+    "image": "http://images.clipartpanda.com/trophy-clipart-RcA7Kj9pi.gif",
+    "description": "Top performer of week 3."
+  },
+  {
+    "name": "Badazz",
+    "id": "ach-badazz",
+    "image": "https://img.clipartfest.com/787286ef7f113a1bd68b0c3bb6e8abb1_body-muscle-arm-clipart-muscle-arm-clip-art_202-206.jpeg",
+    "description": "Completed at least 10 units in a round."
+  }
+]
