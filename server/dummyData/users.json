@@ -1,6 +1,7 @@
 [
   {
     "name": "Franklin Jeng",
+    "username": "franklinjjeng",
     "password": "ilovekitties01",
     "team": "Engineering",
     "scores": [
@@ -16,6 +17,7 @@
   },
   {
     "name": "James Briggs",
+    "username": "jfbriggs",
     "password": "cafelatte1115",
     "team": "Engineering",
     "scores": [
@@ -31,6 +33,7 @@
   },
   {
     "name": "Greg Prouty",
+    "username": "gprouty",
     "password": "meanmuggin515",
     "team": "Design",
     "scores": [
@@ -45,6 +48,7 @@
   },
   {
     "name": "Pat Sheehan",
+    "username": "psheehan89",
     "password": "dopeashell0001",
     "team": "Sales",
     "scores": [

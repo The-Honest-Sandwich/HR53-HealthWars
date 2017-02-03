@@ -39,14 +39,14 @@ app.get('/api/users', userController.getUsers);
 app.post('/api/users', userController.newUser);
 
 // Add an achievement to a user
-app.post('/api/users/:userId/achievements', userController.addAchievement);
+app.post('/api/users/:username/achievements', userController.addAchievement);
 
 // Get a single user's data (using Mongo ID)
-app.get('/api/users/:userId', userController.getUserById);
+app.get('/api/users/:username', userController.getUser);
 
 // Update a user's scores (requres the entire edited array be sent through in request)
 // Scores array, pre-edit, can be acquired via getting a single user's full data (see above route)
-app.post('/api/users/:userId/scores', userController.updateScores);
+app.post('/api/users/:username/scores', userController.updateScores);
 
 // === ACHIEVEMENT ROUTING ===
 
