@@ -1,10 +1,10 @@
 var User = require('./userModel.js');
 var Q = require('q');
 
-var findById = Q.nbind(User.findById, User);
+var findUser = Q.nbind(User.findOne, User);
 var createUser = Q.nbind(User.create, User);
 var findUsers = Q.nbind(User.find, User);
-var findByIdAndUpdate = Q.nbind(User.findByIdAndUpdate, User);
+var findOneAndUpdate = Q.nbind(User.findOneAndUpdate, User);
 
 module.exports = {
 
@@ -30,8 +30,8 @@ module.exports = {
     });
   },
   
-  getUserById : function(req, res, next) {
-    return findById(req.params.userId).then(function(user){
+  getUser : function(req, res, next) {
+    return findUser({username: req.params.username}).then(function(user){
       if(user) {
         res.json(user);
       }
@@ -42,8 +42,8 @@ module.exports = {
   },
 
   addAchievement: function(req, res, next) {
-    return findByIdAndUpdate(
-      req.params.userId,
+    return findOneAndUpdate(
+      {username: req.params.username},
       {$push: {'achievements': req.body.achievementId}},
       {new: true})
     .then(function(thing) {
@@ -58,8 +58,8 @@ module.exports = {
   },
 
   updateScores: function(req, res, next) {
-    return findByIdAndUpdate(
-      req.params.userId,
+    return findOneAndUpdate(
+      {username: req.params.username},
       {$set: {'scores': req.body.scores}},
       {new: true})
     .then(function(thing) {
