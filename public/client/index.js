@@ -3,9 +3,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import App from './components/App';
-import LoggingExercise from './components/mainViews/LoggingExercise';
-import UserView from './components/UserView';
-import Overview from './components/Overview';
+import LoggingExercise from './components/exercise/LoggingExercise';
+import UserView from './components/userView/UserView';
+import Overview from './components/overview/Overview';
   
 render((
   <Router history={hashHistory}>
