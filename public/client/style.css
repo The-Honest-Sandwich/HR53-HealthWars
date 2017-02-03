@@ -1,9 +1,9 @@
 html {
-	background-color: #a7fff4;
+	background-color: #d1ecff;
 }
 
 body {
-	background-color: #a7fff4;
+	background-color: #d1ecff;
   color: #000;
 }
 
@@ -90,7 +90,7 @@ th {
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-  color: #a7fff4;
+  color: #d1ecff;
 }
 
 .navbar-default .navbar-nav>li>a:focus {
@@ -103,7 +103,7 @@ th {
 }
 
 .navbar-default .navbar-brand:hover {
-    color: #a7fff4;
+    color: #d1ecff;
 }
 
 .navbar-default .navbar-brand:focus {
