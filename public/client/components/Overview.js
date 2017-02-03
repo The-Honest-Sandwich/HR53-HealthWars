@@ -11,13 +11,13 @@ export default class Overview extends React.Component {
 
     this.state = {
       data: [ // TEMPORARY STUB DATA
-        {name: 'John Smith', team: 'Monkeys', total: 22},
-        {name: 'Alex Smith', team: 'Monkeys', total: 15},
-        {name: 'Greg Jones', team: 'Salamanders', total: 12},
-        {name: 'Ben Hamm', team: 'Salamanders', total: 13},
-        {name: 'George Forrest', team: 'Sharks', total: 17},
-        {name: 'Violet Jones', team: 'Creatures', total: 13},
-        {name: 'James Johnson', team: 'Salamanders', total: 18}
+        // {name: 'John Smith', team: 'Monkeys', total: 22},
+        // {name: 'Alex Smith', team: 'Monkeys', total: 15},
+        // {name: 'Greg Jones', team: 'Salamanders', total: 12},
+        // {name: 'Ben Hamm', team: 'Salamanders', total: 13},
+        // {name: 'George Forrest', team: 'Sharks', total: 17},
+        // {name: 'Violet Jones', team: 'Creatures', total: 13},
+        // {name: 'James Johnson', team: 'Salamanders', total: 18}
       ]
     };
   }
