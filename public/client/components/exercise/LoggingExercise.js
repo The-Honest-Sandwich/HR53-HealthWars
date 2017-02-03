@@ -25,7 +25,7 @@ export default class LoggingExercise extends React.Component {
   submitClick(data) {
     // console.log('submitting data', data);
     this.setState({units: 0})
-    return axios.post('http://127.0.0.1:3000/submitUnits', data);
+    return axios.post('http://127.0.0.1:3000/submitUnits', {units: data});
   }
 
   render() {
