@@ -17,8 +17,17 @@ var userSchema = new mongoose.Schema({
     required: false
   },
 
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
+
   scores: {
     type: [Number]
+  },
+
+  achievements: {
+    type: [String]
   }
 
 });

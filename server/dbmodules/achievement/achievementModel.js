@@ -7,6 +7,11 @@ var achievementSchema = new mongoose.Schema({
     required: true
   },
 
+  id: {
+    type: String,
+    required: true
+  },
+
   image: {
     type: String,
     required: false
