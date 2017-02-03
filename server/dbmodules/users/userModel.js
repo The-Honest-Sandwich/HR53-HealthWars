@@ -19,6 +19,10 @@ var userSchema = new mongoose.Schema({
 
   scores: {
     type: [Number]
+  },
+
+  achievements: {
+    type: [String]
   }
 
 });
