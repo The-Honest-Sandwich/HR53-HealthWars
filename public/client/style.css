@@ -1,10 +1,10 @@
 html {
-	background-color: #098e7d;
+	background-color: #a7fff4;
 }
 
 body {
-	background-color: #098e7d;
-	color: #ddd;
+	background-color: #a7fff4;
+  color: #000;
 }
 
 .Week {
@@ -80,8 +80,8 @@ th {
 }
 
 .navbar-default {
-  background-color: #2a445f;
-  border-color: #252e54;
+	background-color: #1b5188;
+  border-color: #364584;
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -90,7 +90,7 @@ th {
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-  color: #16d6bd;
+  color: #a7fff4;
 }
 
 .navbar-default .navbar-nav>li>a:focus {
@@ -103,7 +103,7 @@ th {
 }
 
 .navbar-default .navbar-brand:hover {
-    color: #16d6bd;
+    color: #a7fff4;
 }
 
 .navbar-default .navbar-brand:focus {
