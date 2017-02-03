@@ -41,7 +41,11 @@ body {
 	float:left;
 }
 
-.btn-warning {
+.navbar {
+  border-radius: 0;
+}
+
+.btn-success {
   width: 70px;
   height: 70px;
   padding: 10px 16px;
@@ -50,7 +54,13 @@ body {
   border-radius: 35px;
 }
 
-.btn-danger {
+.btn-primary {
+  background-color: #1b5188;
+  margin-top: 20px; 
+}
+
+.btn-primary:hover {
+  background-color: #022f5d;
 	margin-top: 20px;	
 }
 
