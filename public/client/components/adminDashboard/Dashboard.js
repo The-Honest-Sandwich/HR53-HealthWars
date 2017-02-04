@@ -9,59 +9,79 @@ export default class Dashboard extends React.Component {
     super();
 
     this.state = {};
-  }
 
-  addData(item) {
-    var currentData = this.state.data;
-    currentData.push(item);
-    this.setState({
-      data: currentData
-    });
-  }
-
-  sortByTotal() {
-    var currentData = this.state.data;
-
-    currentData.sort(function(a, b) {
-      return b.total - a.total;
-    });
-
-    this.setState({
-      data: currentData
-    });
+    this.addUser = this.addUser.bind(this);
   }
 
   componentDidMount() {
     var context = this;
 
-    var users = axios.get('/api/users').then(function(res) {
-      res.data.forEach(function(person) {
-        var total = person.scores.reduce((pv, cv) => pv+cv, 0);
-        person.total = total;
-        context.addData(person);
-      });
-      context.sortByTotal();
-    });
+    // Get all users (for dealing with current user data)
+
+    // 
+
+
 
   }
 
+  addUser(e) {
+      e.preventDefault();
+
+      var userObj = {
+        'name': this.refs.name.value,
+        'username': this.refs.username.value,
+        'password': this.refs.password.value,
+        'team': this.refs.team.value,
+        'scores': []
+      };
+
+      // below function will apply appropriate amount of 0 scores to a user if added after-the-fact (i.e. added in week 3, scores = [0, 0, 0])
+      axios.get('/api/rounds').then(function(res) {
+        var roundTotal = res.data.length;
+        for (var i = 1; i <= roundTotal; i++) {
+          userObj.scores.push(0);
+        }
+
+        axios.post('/api/users', userObj)
+        .then(function(res) {
+          console.log(res);
+          console.log('User added!');
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+
+      });
+
+      this.render();
+
+    }
+
+
   render() {
     return (
-      <div id='overview' className='text-center'>
-        <div className='overview-header'>
-          Organization Totals
+      <div id='admin-dashboard' className='text-center'>
+        <div className='admin-header'>
+          <h2>Administrator Dashboard<h2>
+          <p>Current Round:</p>
+          <p>Current Exercise:</p>
         </div>
-        <table className='table'>
-          <tr>
-            <th>Name</th>
-            <th>Team</th>
-            <th>Total</th>
-          </tr>
-          { this.state.data.map((person) =>
-          <UserTotal className='texttd' name={person.name} team={person.team} total={person.total} />
-          ) }
-        </table>
+        <div className='add-user'>
+          <p>Temporary Add User Form</p>
+          <form className="form" onSubmit={this.addUser}>
+            <input type="text" name="name" placeholder="Name" ref="name" /><br />
+            <input type="text" name="username" placeholder="Username" ref="username" /><br />
+            <input type="text" name="password" placeholder="Password" ref="password" /><br />
+            <input type="text" name="team" placeholder="Team" ref="team" /><br />
+            <input type="submit" value="Add User" />
+          </form>
+        </div>
       </div>
     )
   }
 }
+
+
+
+
+        
