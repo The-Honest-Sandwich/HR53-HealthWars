@@ -11,7 +11,7 @@ export default class App extends React.Component {
       rounds: null,
       users: null,
       exercise: null,
-
+      currentUser: null
     }
   }
 
@@ -26,7 +26,9 @@ export default class App extends React.Component {
     axios.get('/api/exercises').then(function(res) {
       context.setState({exercise: res.data});
     });
-
+    axios.get('/api/users/jfbriggs').then(function(res) {
+      context.setState({currentUser: res.data});
+    });
   }
 
   render() {
@@ -35,7 +37,8 @@ export default class App extends React.Component {
       return React.cloneElement(child, {
         rounds: context.state.rounds,
         users: context.state.users,
-        exercise: context.state.exercise
+        exercise: context.state.exercise,
+        currentUser: context.state.currentUser
       })
     })
     return (
