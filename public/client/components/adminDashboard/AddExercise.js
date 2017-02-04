@@ -26,7 +26,7 @@ export default class AddExercise extends React.Component {
       var context = this;
 
 
-      axios.post('/api/users', exObj)
+      axios.post('/api/exercises', exObj)
       .then(function(res) {
         console.log('New exercise added!');
         alert('NewExercise added!');
