@@ -1,7 +1,11 @@
 import React from 'react';
 import ChangeUnits from './../buttons/ChangeUnits';
 import SubmitUnits from './../buttons/SubmitUnits';
+import DropdownSelector from './DropdownSelector';
 import axios from 'axios';
+
+//dummy data
+var exercises = [{name: "push-ups"}, {name:"stairs"}, {name:"planks"}]
 
 export default class LoggingExercise extends React.Component {
   constructor(props) {
@@ -25,13 +29,13 @@ export default class LoggingExercise extends React.Component {
   submitClick(data) {
     // console.log('submitting data', data);
     this.setState({units: 0})
-    return axios.post('http://127.0.0.1:3000/submitUnits', {units: data});
+    return axios.post('/submitUnits', {units: data});
   }
 
   render() {
     return (
       <div className="text-center">
-        <div>{ this.state.exercise }</div>
+        <DropdownSelector title={this.state.exercise} exercises={exercises}/>
         <table className="table">
           <tbody>
             <tr>

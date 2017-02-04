@@ -83,6 +83,10 @@ th {
 	font-size: 24px;
 }
 
+.btn-toolbar .btn, .btn-toolbar .btn-group, .btn-toolbar .input-group {
+  float: none;
+}
+
 .texttd {
 	font-size: 18px;
 	padding: 6px;
