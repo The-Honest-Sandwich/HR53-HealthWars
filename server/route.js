@@ -48,6 +48,9 @@ app.get('/api/users/:username', userController.getUser);
 // Scores array, pre-edit, can be acquired via getting a single user's full data (see above route)
 app.post('/api/users/:username/scores', userController.updateScores);
 
+// Tell DB a new round has started: update all users' scores array
+app.post('/api/users/newround', userController.addRound);
+
 // === ACHIEVEMENT ROUTING ===
 
 // Get all achievements from DB
