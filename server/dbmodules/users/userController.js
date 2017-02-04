@@ -5,6 +5,7 @@ var findUser = Q.nbind(User.findOne, User);
 var createUser = Q.nbind(User.create, User);
 var findUsers = Q.nbind(User.find, User);
 var findOneAndUpdate = Q.nbind(User.findOneAndUpdate, User);
+var updateUser = Q.nbind(User.update, User);
 
 module.exports = {
 
@@ -57,12 +58,31 @@ module.exports = {
     });
   },
 
+  // Edit a user's scores array
   updateScores: function(req, res, next) {
     return findOneAndUpdate(
       {username: req.params.username},
       {$set: {'scores': req.body.scores}},
       {new: true})
     .then(function(thing) {
+      if (thing) {
+        res.json(thing);
+      }
+      next();
+    }).fail(function(err) {
+      console.log(err);
+      next(err);
+    });
+  },
+
+  // Add a new element to all users' scores array on initiation of a new round
+  addRound: function(req, res, next) {
+    return updateUser(
+      {},
+      { $push: {'scores': 0}},
+      { multi: true })
+    .then(function(thing) {
+      console.log('Updated users scores!');
       if (thing) {
         res.json(thing);
       }
