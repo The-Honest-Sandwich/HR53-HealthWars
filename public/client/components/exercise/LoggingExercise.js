@@ -1,6 +1,6 @@
 import React from 'react';
-import ChangeUnits from './../buttons/ChangeUnits';
-import SubmitUnits from './../buttons/SubmitUnits';
+import ChangeUnits from './ChangeUnits';
+import SubmitUnits from './SubmitUnits';
 import DropdownSelector from './DropdownSelector';
 import axios from 'axios';
 
