@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Franklin Jeng
+  - __Scrum Master__: James Briggs
+  - __Development Team Members__: Patrick Sheehan, Greg Prouty
 
 ## Table of Contents
 
@@ -25,10 +25,9 @@
 ## Requirements
 
 - Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- MongoDB 3.4.x
+- React 15.x
+
 
 ## Development
 
@@ -37,14 +36,12 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
 npm install
-bower install
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](#https://github.com/The-Honest-Sandwich/HR53-HealthWars/issues)
 
 
 ## Contributing
