@@ -13,6 +13,9 @@ export default class LoggingExercise extends React.Component {
     this.state = {
       exercise: 'PLACE_HOLDER_EXERCISE',
       units: 0,
+      currentRound: null,
+      currentExercise: null,
+      currentExUnit: null
     }
     this.unitChange = this.unitChange.bind(this);
     this.submitClick = this.submitClick.bind(this);
@@ -20,7 +23,19 @@ export default class LoggingExercise extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser !== null) {
-    console.log(nextProps);
+      console.log(nextProps);
+      var currEx = nextProps.rounds[nextProps.rounds.length - 1].exercise;
+      this.setState({currentRound: nextProps.rounds[nextProps.rounds.length - 1].name,
+                     currentExercise: currEx});
+
+      console.log(nextProps.exercise);
+      // Get the unit measure for the current exercise
+      for (var i = 0; i < nextProps.exercise.length; i++) {
+        if (nextProps.exercise[i].name === currEx) {
+          this.setState({currentExUnit: nextProps.exercise[i].unit});
+          return;
+        }
+      }
     }
   }
 
@@ -54,7 +69,11 @@ export default class LoggingExercise extends React.Component {
   render() {
     return (
       <div className="text-center">
-        <DropdownSelector title={this.state.exercise} exercises={exercises}/>
+        <div className="exercise-info">
+          <div>Current Round: {this.state.currentRound}</div>
+          <div>Current Exercise: {this.state.currentExercise}</div>
+        </div>
+        <div className="exercise-info">Exercise Unit: {this.state.currentExUnit}</div>
         <table className="table">
           <tbody>
             <tr>
