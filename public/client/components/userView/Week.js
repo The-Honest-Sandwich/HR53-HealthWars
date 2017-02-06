@@ -16,11 +16,12 @@ export default class Week extends React.Component {
 
     return (
       <div className='Week'>
-        <div className='weekDates'><h3>Week {this.props.weekNum + 1}: {this.props.weekInfo}</h3></div>
+        <div className='weekDates'><h4>Week {this.props.weekNum + 1}:</h4></div>
+        <div className='amountOfStars'><h4>{this.props.weekInfo}</h4></div>
         <div className='stars'>
-
           {this.renderStars()}
         </div>
+        <div className="line-separator"></div>
       </div>
     )
   }
