@@ -83,18 +83,20 @@ export default class LoggingExercise extends React.Component {
     return (
       <div className="text-center">
         <table className="exercise-info col-xs-offset-4 col-xs-6 text-left">
-          <tr>
-            <td>Current Round:</td>
-            <td>{this.state.currentRound}</td>
-          </tr>
-          <tr>
-            <td>Current Exercise:</td>
-            <td>{this.state.currentExercise}</td>
-          </tr>
-          <tr>
-            <td>Exercise Unit:</td>
-            <td>{this.state.currentExUnit}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>Current Round:</td>
+              <td>{this.state.currentRound}</td>
+            </tr>
+            <tr>
+              <td>Current Exercise:</td>
+              <td>{this.state.currentExercise}</td>
+            </tr>
+            <tr>
+              <td>Exercise Unit:</td>
+              <td>{this.state.currentExUnit}</td>
+            </tr>
+          </tbody>
         </table>
         <table className="table">
           <tbody>
