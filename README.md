@@ -1,6 +1,6 @@
-# Project Name
+# Health Wars
 
-> Pithy project description
+> Compete within your organization to be healthy.
 
 ## Team
 
@@ -37,6 +37,19 @@ From within the root directory:
 
 ```sh
 npm install
+```
+
+To use dummy data~
+Run mongod and insert the dummy data through the pre-built js file.
+
+From root directory:
+```
+mongod
+
+```
+In a new tab:
+```
+node server/insertDummyData.js
 ```
 
 ### Roadmap
