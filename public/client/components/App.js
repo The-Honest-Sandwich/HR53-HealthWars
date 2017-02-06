@@ -15,6 +15,7 @@ export default class App extends React.Component {
     }
   }
 
+  // pulls all information from the DB and sets the states above which by default are null
   componentDidMount () {
     var context = this;
     axios.get('/api/rounds').then(function(res) {
@@ -33,6 +34,8 @@ export default class App extends React.Component {
 
   render() {
     var context = this;
+
+    // Passes all the DB information via states to all components
     var children = React.Children.map(this.props.children, function(child) {
       return React.cloneElement(child, {
         rounds: context.state.rounds,

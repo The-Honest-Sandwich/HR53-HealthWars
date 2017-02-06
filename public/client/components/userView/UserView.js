@@ -7,13 +7,13 @@ import dummydata from './../dummydata/userViewData';
 
 export default class UserView extends React.Component {
   constructor(props) {
-    // console.log('props in const', props)
     super(props);
     this.state = {
       currentUser: {name: '', team: ''}
     };
   }
 
+  // listens for change in props from App.js and sets the state to the new values
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser !== null) {
       this.setState({currentUser: nextProps.currentUser})
