@@ -22,13 +22,13 @@ export default class Dashboard extends React.Component {
       context.setState({rounds: res.data});
       context.setState({currentRound: res.data[res.data.length - 1].name});
       context.setState({currentExercise: res.data[res.data.length - 1].exercise});
-      console.log(context.state);
+      // console.log(context.state);
     });
 
     // Get existing achievements
     axios.get('/api/achievements').then(function(res) {
       context.setState({achievements: res.data});
-      console.log(context.state);
+      // console.log(context.state);
     });
 
   }
@@ -36,16 +36,22 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
-      <div id='admin-dashboard' className='text-center'>
-        <div className='admin-header'>
-          <h2>Administrator Dashboard</h2>
-          <p>Current Round: {this.state.currentRound}</p>
-          <p>Current Exercise: {this.state.currentExercise}</p>
+        <div className='admin-form container'>
+          <div className='row'>
+            <div className="col-sm-offset-3 col-sm-6">
+              <div className='admin-header'>
+                <h2>Administrator Dashboard</h2>
+                <p>Current Round: {this.state.currentRound}</p>
+                <p>Current Exercise: {this.state.currentExercise}</p>
+              </div>
+              <div>
+                <NewRound />
+                <AddUser />
+                <AddExercise />
+              </div>
+            </div>
+          </div>
         </div>
-        <NewRound />
-        <AddUser />
-        <AddExercise />
-      </div>
     )
   }
 }

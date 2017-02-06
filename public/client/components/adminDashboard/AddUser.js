@@ -36,7 +36,7 @@ export default class AddUser extends React.Component {
 
         axios.post('/api/users', userObj)
         .then(function(res) {
-          console.log('User added!');
+          // console.log('User added!');
           alert('User added!');
           context.refs.name.value = '';
           context.refs.username.value = '';
@@ -54,14 +54,14 @@ export default class AddUser extends React.Component {
   render() {
     return (
         <div className='admin-form'>
-          <p>Add New User</p>
           <form className="form" onSubmit={this.addUser}>
-            <input type="text" name="name" placeholder="Name" ref="name" /><br />
-            <input type="text" name="username" placeholder="Username" ref="username" /><br />
-            <input type="text" name="password" placeholder="Password" ref="password" /><br />
-            <input type="text" name="team" placeholder="Team" ref="team" /><br />
-            <input type="submit" value="Add User" />
-          </form>
+            <h5>New User</h5>
+            <input className="form-control" type="text" name="name" placeholder="Name" ref="name" />
+            <input className="form-control" type="text" name="username" placeholder="Username" ref="username" />
+            <input className="form-control" type="text" name="password" placeholder="Password" ref="password" />
+            <input className="form-control" type="text" name="team" placeholder="Team" ref="team" />
+            <button className="btn btn-primary admin-button" type="submit" value="Add User">Add User</button>
+          </form><br />
         </div>
     )
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import dummydata from './../dummydata/userViewData';
 
 export default class UserDescription extends React.Component {
   constructor(props) {
@@ -28,7 +27,9 @@ export default class UserDescription extends React.Component {
       <div id='UserDescription'>
         <div id='username'><h3>{this.state.name}</h3></div>
         <div id='team'>Team: {this.state.team}</div>
+
       </div>
+
     )
   }
 }

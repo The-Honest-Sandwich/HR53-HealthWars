@@ -7,24 +7,37 @@ body {
   color: #000;
 }
 
+.line-separator{
+  height:1px;
+  background:#717171;
+  border-bottom:1px solid #313030;
+}
+.amountOfStars {
+  float:left;
+  width: 25px;
+  margin-right: 10px;
+}
 .Week {
 	float: left;
-	height: 50px;
-	width: 2000px;
+	height: 35px;
+	width: 1000px;
 }
 
 .weekDates {
 	width: 100px;
 	height: 50px;
 	float:left;
+  margin-bottom: 50px
 }
 
 #UserView {
 	float: left;
+  margin-left: 50px;
 }
 
 #UserDescription {
 	float:left;
+  width: 1000px;
 }
 
 #userpic {
@@ -61,7 +74,6 @@ body {
 
 .btn-primary:hover {
   background-color: #022f5d;
-	margin-top: 20px;	
 }
 
 .unit-display {
@@ -77,6 +89,11 @@ body {
 .table>tbody>tr>td {
 	vertical-align: inherit;
 	border-top: none;
+}
+
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #1b5188;
 }
 
 th {
@@ -112,22 +129,45 @@ th {
 }
 
 .navbar-default .navbar-brand {
-    color: #ddd;
-    font-size: 22px;
+  color: #ddd;
+  font-size: 22px;
 }
 
 .navbar-default .navbar-brand:hover {
-    color: #d1ecff;
+  color: #d1ecff;
 }
 
 .navbar-default .navbar-brand:focus {
-    color: #fff;
+  color: #fff;
 }
 
 .admin-form {
   margin-top: 20px;
 }
 
+.admin-button {
+  margin-top: 0px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.exercise-dropdown {
+  height: 34px;
+  background-color: aliceblue;
+}
+
+.exercise-dropdown:hover {
+  height: 34px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
 .exercise-info {
-  font-size: 20px;
+  font-size: 16px;
+}
+
+table {
+  border-color: #fff
 }

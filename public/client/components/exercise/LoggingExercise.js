@@ -4,6 +4,7 @@ import SubmitUnits from './SubmitUnits';
 import DropdownSelector from './DropdownSelector';
 import axios from 'axios';
 
+
 export default class LoggingExercise extends React.Component {
   constructor(props) {
     super(props)
@@ -26,7 +27,6 @@ export default class LoggingExercise extends React.Component {
 
       this.setState({currentRound: currRound, currentExercise: currEx});
 
-      console.log(nextProps.exercise);
       // Get the unit measure for the current exercise
       for (var i = 0; i < nextProps.exercise.length; i++) {
         if (nextProps.exercise[i].name === currEx) {
@@ -34,6 +34,23 @@ export default class LoggingExercise extends React.Component {
           return;
         }
       }
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.currentUser !== null) {
+      var currEx = this.props.rounds[this.props.rounds.length - 1].exercise;
+      this.setState({currentRound: this.props.rounds[this.props.rounds.length - 1].name,
+                     currentExercise: currEx});
+
+      // Get the unit measure for the current exercise
+      for (var i = 0; i < this.props.exercise.length; i++) {
+        if (this.props.exercise[i].name === currEx) {
+          this.setState({currentExUnit: this.props.exercise[i].unit});
+          return;
+        }
+      }
+    
     }
   }
 
@@ -51,6 +68,7 @@ export default class LoggingExercise extends React.Component {
     var units = this.state.units;
     var currentScores = this.props.currentUser.scores;
 
+    // console.log('Current scores:', currentScores);
     // Change user's in-state scores array: increment last element (current round's score)
     currentScores[currentScores.length - 1] += units;
 
@@ -60,16 +78,28 @@ export default class LoggingExercise extends React.Component {
 
     // reset visible unit counter back to 0
     this.setState({units: 0});
+    this.props.updateData();
   }
 
   render() {
     return (
       <div className="text-center">
-        <div className="exercise-info">
-          <div>Current Round: {this.state.currentRound}</div>
-          <div>Current Exercise: {this.state.currentExercise}</div>
-        </div>
-        <div className="exercise-info">Exercise Unit: {this.state.currentExUnit}</div>
+        <table className="exercise-info col-xs-offset-4 col-xs-6 text-left">
+          <tbody>
+            <tr>
+              <td>Current Round:</td>
+              <td>{this.state.currentRound}</td>
+            </tr>
+            <tr>
+              <td>Current Exercise:</td>
+              <td>{this.state.currentExercise}</td>
+            </tr>
+            <tr>
+              <td>Exercise Unit:</td>
+              <td>{this.state.currentExUnit}</td>
+            </tr>
+          </tbody>
+        </table>
         <table className="table">
           <tbody>
             <tr>
