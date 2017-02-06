@@ -3,7 +3,6 @@ import dummydata from './../dummydata/userViewData';
 
 export default class UserDescription extends React.Component {
   constructor(props) {
-    // console.log('props', props);
     super(props);
     this.state = {
       name: '',
@@ -17,6 +16,11 @@ export default class UserDescription extends React.Component {
       this.setState({name: nextProps.user.name});
       this.setState({team: nextProps.user.team});
     }
+  }
+
+  componentDidMount() {
+    this.setState({name: this.props.user.name})
+    this.setState({team: this.props.user.team})
   }
 
   render() {
