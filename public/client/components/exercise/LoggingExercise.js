@@ -4,14 +4,11 @@ import SubmitUnits from './SubmitUnits';
 import DropdownSelector from './DropdownSelector';
 import axios from 'axios';
 
-//dummy data
-var exercises = [{name: "push-ups"}, {name:"stairs"}, {name:"planks"}]
 
 export default class LoggingExercise extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      exercise: 'PLACE_HOLDER_EXERCISE',
       units: 0,
       currentRound: null,
       currentExercise: null,
@@ -23,12 +20,10 @@ export default class LoggingExercise extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser !== null) {
-      console.log(nextProps);
       var currEx = nextProps.rounds[nextProps.rounds.length - 1].exercise;
       this.setState({currentRound: nextProps.rounds[nextProps.rounds.length - 1].name,
                      currentExercise: currEx});
 
-      console.log(nextProps.exercise);
       // Get the unit measure for the current exercise
       for (var i = 0; i < nextProps.exercise.length; i++) {
         if (nextProps.exercise[i].name === currEx) {
@@ -36,6 +31,23 @@ export default class LoggingExercise extends React.Component {
           return;
         }
       }
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.currentUser !== null) {
+      var currEx = this.props.rounds[this.props.rounds.length - 1].exercise;
+      this.setState({currentRound: this.props.rounds[this.props.rounds.length - 1].name,
+                     currentExercise: currEx});
+
+      // Get the unit measure for the current exercise
+      for (var i = 0; i < this.props.exercise.length; i++) {
+        if (this.props.exercise[i].name === currEx) {
+          this.setState({currentExUnit: this.props.exercise[i].unit});
+          return;
+        }
+      }
+    
     }
   }
 
