@@ -4,14 +4,10 @@ import SubmitUnits from './SubmitUnits';
 import DropdownSelector from './DropdownSelector';
 import axios from 'axios';
 
-//dummy data
-var exercises = [{name: "push-ups"}, {name:"stairs"}, {name:"planks"}]
-
 export default class LoggingExercise extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      exercise: 'PLACE_HOLDER_EXERCISE',
       units: 0,
       currentRound: null,
       currentExercise: null,
@@ -23,10 +19,12 @@ export default class LoggingExercise extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser !== null) {
-      console.log(nextProps);
+
+      // Variables to represent the current round & exercise via received props
       var currEx = nextProps.rounds[nextProps.rounds.length - 1].exercise;
-      this.setState({currentRound: nextProps.rounds[nextProps.rounds.length - 1].name,
-                     currentExercise: currEx});
+      var currRound = nextProps.rounds[nextProps.rounds.length - 1].name;
+
+      this.setState({currentRound: currRound, currentExercise: currEx});
 
       console.log(nextProps.exercise);
       // Get the unit measure for the current exercise
@@ -53,10 +51,8 @@ export default class LoggingExercise extends React.Component {
     var units = this.state.units;
     var currentScores = this.props.currentUser.scores;
 
-    console.log('Current scores:', currentScores);
     // Change user's in-state scores array: increment last element (current round's score)
     currentScores[currentScores.length - 1] += units;
-    console.log('New scores:', currentScores);
 
     // Post scores back to database
     axios.post('/api/users/' + user + '/scores', {'scores': currentScores});
