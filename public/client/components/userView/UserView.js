@@ -7,34 +7,44 @@ import dummydata from './../dummydata/userViewData';
 
 export default class UserView extends React.Component {
   constructor(props) {
-    // console.log('props in const', props)
     super(props);
-    // this.state = {
-    //   currentUser: {name: '', team: ''}
-    // };
+    this.state = {
+      currentUser: null
+    };
   }
 
-  componentDidMount () {
-    // var context = this;
-    // console.log('outside', this.state.currentUser);
-    // console.log('outside props', this.props.currentUser);
-    // this.setState({currentUser: context.props.currentUser}, function() {
-    //   console.log('currentUser', context.state.currentUser);
-    // });
+  // listens for change in props from App.js and sets the state to the new values
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser !== null) {
+      this.setState({currentUser: nextProps.currentUser})
+    }
   }
 
+  componentDidMount() {
+    this.setState({currentUser: this.props.currentUser})
+  }
 
 
   render() {
-    return (
-      <div id='UserView'>
-      	<UserDescription user={this.props.currentUser}/>
-      	{dummydata.stats.map( (curWeek, i) => {
-			return <Week key={i} weekInfo={curWeek} />
-		})}
-      </div>
 
-    )
+    if(this.state.currentUser) {
+      return (
+      <div id='UserView'>
+        <UserDescription user={this.state.currentUser}/>
+          {this.state.currentUser.scores.map( (num, i) => {
+            return <Week key={i} weekInfo={num} />
+          })}
+        </div>
+      )
+    } else {
+
+      return (
+
+        <h3>LOADING</h3>
+
+      )
+    }
+
   }
 }
 

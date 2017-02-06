@@ -15,7 +15,12 @@ export default class App extends React.Component {
     }
   }
 
+  // pulls all information from the DB and sets the states above which by default are null
   componentDidMount () {
+    this.updateData();
+  }
+
+  updateData () {
     var context = this;
     axios.get('/api/rounds').then(function(res) {
       context.setState({rounds: res.data});
@@ -33,12 +38,15 @@ export default class App extends React.Component {
 
   render() {
     var context = this;
+
+    // Passes all the DB information via states to all components
     var children = React.Children.map(this.props.children, function(child) {
       return React.cloneElement(child, {
         rounds: context.state.rounds,
         users: context.state.users,
         exercise: context.state.exercise,
-        currentUser: context.state.currentUser
+        currentUser: context.state.currentUser,
+        updateData: context.updateData.bind(context)
       })
     })
     return (
