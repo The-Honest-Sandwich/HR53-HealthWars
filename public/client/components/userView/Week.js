@@ -5,7 +5,7 @@ export default class Week extends React.Component {
 
   renderStars() {
     var arr = [];
-    for(var i = 0; i < this.props.weekInfo.stars; i++) {
+    for(var i = 0; i < this.props.weekInfo; i++) {
       arr.push( <Star key={i}/> );
     }
     return arr;
