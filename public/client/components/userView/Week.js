@@ -15,14 +15,11 @@ export default class Week extends React.Component {
   render() {
 
     return (
-      <div className='Week'>
-        <div className='weekDates'><h4>Week {this.props.weekNum + 1}:</h4></div>
-        <div className='amountOfStars'><h4>{this.props.weekInfo}</h4></div>
-        <div className='stars'>
-          {this.renderStars()}
-        </div>
-        <div className="line-separator"></div>
-      </div>
+      <tr className='Week'>
+        <td className='weekDates'><h4>Week {this.props.weekNum + 1}:</h4></td>
+        <td className='amountOfStars text-right'><h4>{this.props.weekInfo}</h4></td>
+        <td className='stars'>{this.renderStars()}</td>
+      </tr>
     )
   }
 }
