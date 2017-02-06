@@ -11,21 +11,18 @@ export default class UserDescription extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.setState({name: this.props.user.name});
-  //   this.setState({team: this.props.user.team});
-  // }
-
-  componentWillReceiveProps() {
-    this.setState({name: this.props.user.name});
-    this.setState({team: this.props.user.team});
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user !== null) {
+      this.setState({name: nextProps.user.name});
+      this.setState({team: nextProps.user.team});
+    }
   }
 
   render() {
     return (
       <div id='UserDescription'>
-        <div id='username'><h3>{this.props.user.name}</h3></div>
-        <div id='team'>Team: {this.props.user.team}</div>
+        <div id='username'><h3>{this.state.name}</h3></div>
+        <div id='team'>Team: {this.state.team}</div>
       </div>
     )
   }
