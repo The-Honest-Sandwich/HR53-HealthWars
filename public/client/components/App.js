@@ -17,6 +17,10 @@ export default class App extends React.Component {
 
   // pulls all information from the DB and sets the states above which by default are null
   componentDidMount () {
+    this.updateData();
+  }
+
+  updateData () {
     var context = this;
     axios.get('/api/rounds').then(function(res) {
       context.setState({rounds: res.data});
@@ -41,7 +45,8 @@ export default class App extends React.Component {
         rounds: context.state.rounds,
         users: context.state.users,
         exercise: context.state.exercise,
-        currentUser: context.state.currentUser
+        currentUser: context.state.currentUser,
+        updateData: context.updateData.bind(context)
       })
     })
     return (
