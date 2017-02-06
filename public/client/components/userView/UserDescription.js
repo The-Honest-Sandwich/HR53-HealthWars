@@ -19,6 +19,11 @@ export default class UserDescription extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({name: this.props.user.name})
+    this.setState({team: this.props.user.team})
+  }
+
   render() {
     return (
       <div id='UserDescription'>

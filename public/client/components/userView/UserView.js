@@ -20,8 +20,13 @@ export default class UserView extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({currentUser: this.props.currentUser})
+  }
+
 
   render() {
+    console.log('currentUser', this.state.currentUser);
     return (
       <div id='UserView'>
       	<UserDescription user={this.state.currentUser}/>
