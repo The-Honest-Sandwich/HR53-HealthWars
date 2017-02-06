@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { ButtonToolbar, DropdownButton, NavDropdown, MenuItem } from 'react-bootstrap';
+
 
 
 export default class NewRound extends React.Component {
@@ -70,16 +72,21 @@ export default class NewRound extends React.Component {
         <div className='admin-form' id='newround'>
           <p>Initiate Next Round</p>
           <form className="form" onSubmit={this.newRound}>
-            Round Name:<br />
-            <input type="text" name="name" placeholder="Round Name" ref="name" /><br />
-            Exercise:<br />
-            <select name="exercise" form='newround' ref="exercise" >
+            <h5>Round Name:</h5>
+            <input type="text" className="form-control" name="name" placeholder="Round Name" ref="name" /><br />
+            <h5>Exercise:</h5>
+
+
+            <select className="exercise-dropdown" name="exercise" form='newround' ref="exercise" >
               { this.state.exercises.map((exercise) =>
               <option value={exercise.toString()}>{exercise}</option>
               ) }
-            </select><br />
-            <input type="submit" value="Start Next Round" />
-          </form>
+            </select><br /><br />
+
+
+
+            <button className="btn btn-primary admin-button" type="submit" value="Add User">Start Next Round</button>
+          </form><br />
         </div>
     )
   }
