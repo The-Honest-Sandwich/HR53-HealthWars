@@ -36,7 +36,7 @@ export default class AddUser extends React.Component {
 
         axios.post('/api/users', userObj)
         .then(function(res) {
-          console.log('User added!');
+          // console.log('User added!');
           alert('User added!');
           context.refs.name.value = '';
           context.refs.username.value = '';

@@ -1,5 +1,4 @@
 import React from 'react';
-import dummydata from './../dummydata/userViewData';
 
 export default class UserDescription extends React.Component {
   constructor(props) {
