@@ -21,6 +21,9 @@ body {
 	float: left;
 	height: 35px;
 	width: 1000px;
+  border-top: 1px dotted #003ea0;
+  margin: 10px 0px 10px 0px;
+  padding-top: 10px;
 }
 
 .weekDates {
@@ -48,6 +51,7 @@ body {
 }
 .star {
 	float:left;
+  padding-bottom: 4px;
 }
 
 .stars {
