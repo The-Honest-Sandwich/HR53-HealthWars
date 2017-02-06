@@ -31,7 +31,6 @@ export default class Overview extends React.Component {
     var context = this;
     this.setState({users: this.props.users});
     if (this.props.users !== null) {
-      console.log('mounting data');
       this.props.users.forEach(function(person) {
         var total = person.scores.reduce((pv, cv) => pv+cv, 0);
         person.total = total;
