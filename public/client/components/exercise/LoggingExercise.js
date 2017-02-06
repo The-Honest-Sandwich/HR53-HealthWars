@@ -18,6 +18,12 @@ export default class LoggingExercise extends React.Component {
     this.submitClick = this.submitClick.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser !== null) {
+    console.log(nextProps);
+    }
+  }
+
   unitChange(type) {
     if (type === '-' && this.state.units > 0) {
       this.setState({units: this.state.units - 1});
@@ -27,9 +33,22 @@ export default class LoggingExercise extends React.Component {
   }
 
   submitClick(data) {
-    // console.log('submitting data', data);
-    this.setState({units: 0})
-    return axios.post('/submitUnits', {units: data});
+
+    var user = this.props.currentUser.username;
+    var units = this.state.units;
+    var currentScores = this.props.currentUser.scores;
+
+    console.log('Current scores:', currentScores);
+    // Change user's in-state scores array: increment last element (current round's score)
+    currentScores[currentScores.length - 1] += units;
+    console.log('New scores:', currentScores);
+
+    // Post scores back to database
+    axios.post('/api/users/' + user + '/scores', {'scores': currentScores});
+    console.log('Updated scores for', user, 'posted to database!');
+
+    // reset visible unit counter back to 0
+    this.setState({units: 0});
   }
 
   render() {
