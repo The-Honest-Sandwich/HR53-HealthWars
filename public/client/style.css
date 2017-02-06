@@ -78,6 +78,11 @@ body {
 	border-top: none;
 }
 
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #1b5188;
+}
+
 th {
 	font-size: 24px;
 }
@@ -147,5 +152,9 @@ th {
 }
 
 .exercise-info {
-  font-size: 20px;
+  font-size: 16px;
+}
+
+table {
+  border-color: #fff
 }
