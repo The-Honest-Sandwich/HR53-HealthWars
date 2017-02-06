@@ -32,7 +32,7 @@ export default class NewRound extends React.Component {
         context.addData(exercise.name);
       });
 
-      console.log(context.state);
+      // console.log(context.state);
     });
 
   }
@@ -51,7 +51,7 @@ export default class NewRound extends React.Component {
 
     axios.post('/api/rounds', roundObj)
     .then(function(res) {
-      console.log('Next round initiated!');
+      // console.log('Next round initiated!');
       alert('Next round initiated!');
       context.refs.name.value = '';
       context.refs.exercise.value = '';
@@ -78,8 +78,8 @@ export default class NewRound extends React.Component {
 
 
             <select className="exercise-dropdown" name="exercise" form='newround' ref="exercise" >
-              { this.state.exercises.map((exercise) =>
-              <option value={exercise.toString()}>{exercise}</option>
+              { this.state.exercises.map((exercise, i) =>
+              <option key={i} value={exercise.toString()}>{exercise}</option>
               ) }
             </select><br /><br />
 
