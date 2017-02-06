@@ -61,7 +61,6 @@ body {
 
 .btn-primary:hover {
   background-color: #022f5d;
-	margin-top: 20px;	
 }
 
 .unit-display {
@@ -112,19 +111,38 @@ th {
 }
 
 .navbar-default .navbar-brand {
-    color: #ddd;
-    font-size: 22px;
+  color: #ddd;
+  font-size: 22px;
 }
 
 .navbar-default .navbar-brand:hover {
-    color: #d1ecff;
+  color: #d1ecff;
 }
 
 .navbar-default .navbar-brand:focus {
-    color: #fff;
+  color: #fff;
 }
 
 .admin-form {
   margin-top: 20px;
+}
+
+.admin-button {
+  margin-top: 0px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.exercise-dropdown {
+  height: 34px;
+  background-color: aliceblue;
+}
+
+.exercise-dropdown:hover {
+  height: 34px;
+  background-color: #fff;
+  cursor: pointer;
 }
 

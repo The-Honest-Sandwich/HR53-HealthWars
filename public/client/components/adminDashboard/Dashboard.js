@@ -36,16 +36,22 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
-      <div id='admin-dashboard' className='text-center'>
-        <div className='admin-header'>
-          <h2>Administrator Dashboard</h2>
-          <p>Current Round: {this.state.currentRound}</p>
-          <p>Current Exercise: {this.state.currentExercise}</p>
+        <div className='admin-form container'>
+          <div className='row'>
+            <div className="col-sm-offset-3 col-sm-6">
+              <div className='admin-header'>
+                <h2>Administrator Dashboard</h2>
+                <p>Current Round: {this.state.currentRound}</p>
+                <p>Current Exercise: {this.state.currentExercise}</p>
+              </div>
+              <form>
+                <NewRound />
+                <AddUser />
+                <AddExercise />
+              </form>
+            </div>
+          </div>
         </div>
-        <NewRound />
-        <AddUser />
-        <AddExercise />
-      </div>
     )
   }
 }

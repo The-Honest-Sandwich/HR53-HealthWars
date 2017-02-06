@@ -44,14 +44,14 @@ export default class AddExercise extends React.Component {
   render() {
     return (
         <div className='admin-form'>
-          <p>Add A New Exercise</p>
+          <h5>New Exercise</h5>
           <form className="form" onSubmit={this.addExercise}>
-            <input type="text" name="name" placeholder="Name" ref="name" /><br />
-            <input type="text" name="unit" placeholder="Unit Measure" ref="unit" /><br />
-            <input type="text" name="description" placeholder="Exercise Description" ref="description" /><br />
-            <input type="submit" value="Add Exercise" />
-          </form>
-        </div>
+            <input className="form-control" type="text" name="name" placeholder="Name" ref="name" />
+            <input className="form-control" type="text" name="unit" placeholder="Unit Measure" ref="unit" />
+            <input className="form-control" type="text" name="description" placeholder="Exercise Description" ref="description" />
+            <button className="btn btn-primary admin-button" type="submit" value="Add Exercise">Add Exercise</button>
+          </form><br />
+        </div>  
     )
   }
 }
