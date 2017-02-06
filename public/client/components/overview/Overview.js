@@ -56,15 +56,17 @@ export default class Overview extends React.Component {
     return (
       <div id='overview' className='text-center'>
         <div className='overview-header'>
-          Organization Totals
+          <h2>Organization Totals</h2>
         </div>
         <table className='table'>
-          <tbody>
+          <thead>
             <tr>
               <th>Name</th>
               <th>Team</th>
-              <th>Total</th>
+              <th>Total Stars</th>
             </tr>
+          </thead>
+          <tbody>
             { this.state.data.map((person, i) =>
             <UserTotal key={i} className='texttd' name={person.name} team={person.team} total={person.total} />
             ) }
