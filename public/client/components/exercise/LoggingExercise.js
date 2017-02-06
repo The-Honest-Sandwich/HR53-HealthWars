@@ -3,6 +3,7 @@ import ChangeUnits from './ChangeUnits';
 import SubmitUnits from './SubmitUnits';
 import DropdownSelector from './DropdownSelector';
 import axios from 'axios';
+import { Link } from 'react-router';
 
 
 export default class LoggingExercise extends React.Component {
@@ -20,9 +21,12 @@ export default class LoggingExercise extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser !== null) {
+
+      // Variables to represent the current round & exercise via received props
       var currEx = nextProps.rounds[nextProps.rounds.length - 1].exercise;
-      this.setState({currentRound: nextProps.rounds[nextProps.rounds.length - 1].name,
-                     currentExercise: currEx});
+      var currRound = nextProps.rounds[nextProps.rounds.length - 1].name;
+
+      this.setState({currentRound: currRound, currentExercise: currEx});
 
       // Get the unit measure for the current exercise
       for (var i = 0; i < nextProps.exercise.length; i++) {
@@ -68,7 +72,6 @@ export default class LoggingExercise extends React.Component {
     // console.log('Current scores:', currentScores);
     // Change user's in-state scores array: increment last element (current round's score)
     currentScores[currentScores.length - 1] += units;
-    console.log('New scores:', currentScores);
 
     // Post scores back to database
     axios.post('/api/users/' + user + '/scores', {'scores': currentScores});
@@ -108,7 +111,7 @@ export default class LoggingExercise extends React.Component {
           </tbody>
         </table>
         <div>
-          <SubmitUnits onClick={this.submitClick} data={this.state.units}/>
+          <Link to={`/user`}><SubmitUnits onClick={this.submitClick} data={this.state.units} href="#/user" /></Link>
         </div>
       </div>
     )
