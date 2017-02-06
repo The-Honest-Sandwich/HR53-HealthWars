@@ -52,14 +52,14 @@ export default class Overview extends React.Component {
     return (
       <div id='overview' className='text-center'>
         <div className='overview-header'>
-          Organization Totals
+          <h2>Organization Totals</h2>
         </div>
         <table className='table'>
           <thead>
             <tr>
               <th>Name</th>
               <th>Team</th>
-              <th>Total</th>
+              <th>Total Stars</th>
             </tr>
           </thead>
           <tbody>
