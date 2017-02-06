@@ -3,6 +3,7 @@ import ChangeUnits from './ChangeUnits';
 import SubmitUnits from './SubmitUnits';
 import DropdownSelector from './DropdownSelector';
 import axios from 'axios';
+import { Link } from 'react-router';
 
 
 export default class LoggingExercise extends React.Component {
@@ -110,7 +111,7 @@ export default class LoggingExercise extends React.Component {
           </tbody>
         </table>
         <div>
-          <SubmitUnits onClick={this.submitClick} data={this.state.units}/>
+          <Link to={`/user`}><SubmitUnits onClick={this.submitClick} data={this.state.units} href="#/user" /></Link>
         </div>
       </div>
     )

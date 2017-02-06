@@ -10,7 +10,8 @@ import Dashboard from './components/adminDashboard/Dashboard';
   
 render((
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
+    <Route component={App}>
+      <Route path="/" component={Overview}/>
       <Route path="/user" component={UserView}/>
       <Route path="/overview" component={Overview}/>
       <Route path="/exercise" component={LoggingExercise}/>
