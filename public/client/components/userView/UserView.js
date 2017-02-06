@@ -2,7 +2,6 @@ import React from 'react';
 import UserDescription from './UserDescription';
 import Week from './Week';
 import Star from './Star';
-	
 
 export default class UserView extends React.Component {
   constructor(props) {
