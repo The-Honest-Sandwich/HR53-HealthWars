@@ -11,6 +11,7 @@ export default class UserDescription extends React.Component {
     }
   }
 
+  // listens for change in props from App.js and sets the state to the new values
   componentWillReceiveProps(nextProps) {
     if (nextProps.user !== null) {
       this.setState({name: nextProps.user.name});
@@ -28,5 +29,5 @@ export default class UserDescription extends React.Component {
   }
 }
 
-// temp removing userpicture
+// temp removing userpicture. Intention is to have user profile picture
 // <div id='userpic'><img height='100' width='75' src={dummydata.userpic}/></div>
