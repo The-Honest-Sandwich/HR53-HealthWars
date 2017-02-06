@@ -3,7 +3,6 @@ import dummydata from './../dummydata/userViewData';
 
 export default class UserDescription extends React.Component {
   constructor(props) {
-    // console.log('props', props);
     super(props);
     this.state = {
       name: '',
