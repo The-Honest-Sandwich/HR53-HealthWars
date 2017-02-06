@@ -32,7 +32,7 @@ export default class UserView extends React.Component {
       <div id='UserView'>
         <UserDescription user={this.state.currentUser}/>
           {this.state.currentUser.scores.map( (num, i) => {
-            return <Week key={i} weekInfo={num} />
+            return <Week key={i} weekInfo={num} weekNum={i} />
           })}
         </div>
       )
