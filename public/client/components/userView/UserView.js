@@ -29,10 +29,12 @@ export default class UserView extends React.Component {
       return (
       <div id='UserView'>
         <UserDescription user={this.state.currentUser}/>
-        <table>
-          {this.state.currentUser.scores.map( (num, i) => {
-            return <Week key={i} weekInfo={num} weekNum={i} />
-          })}
+        <table className="container row">
+          <tbody>
+            {this.state.currentUser.scores.map( (num, i) => {
+              return <Week key={i} weekInfo={num} weekNum={i} />
+            })}
+          </tbody>
         </table>
       </div>
       )

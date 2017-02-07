@@ -16,14 +16,15 @@ body {
   float:left;
   width: 25px;
   margin-right: 10px;
+
 }
 .Week {
 	float: left;
-	height: 35px;
+	height: 70px;
 	width: 1000px;
   border-top: 1px dotted #003ea0;
   margin: 10px 0px 10px 0px;
-  padding-top: 10px;
+  padding-top: 0px;
 }
 
 .weekDates {
@@ -174,4 +175,10 @@ th {
 
 table {
   border-color: #fff
+}
+
+.glyphicon-star {
+  padding-top: 6px;
+  padding-left: 10px;
+  font-size: 24px;
 }
