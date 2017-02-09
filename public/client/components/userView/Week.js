@@ -1,5 +1,5 @@
 import React from 'react';
-import Star from './Star.js';
+import Star from './Star'
 
 export default class Week extends React.Component {
 
