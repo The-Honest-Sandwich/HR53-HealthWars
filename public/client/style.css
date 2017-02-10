@@ -74,7 +74,7 @@ body {
 
 .btn-primary {
   background-color: #1b5188;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 .btn-primary:hover {
@@ -181,4 +181,16 @@ table {
   padding-top: 6px;
   padding-left: 10px;
   font-size: 24px;
+}
+
+.top-buffer {
+	margin-top: 100px;
+}
+
+.new-user-form {
+	margin-top: 30px;
+}
+
+.sign-in-form {
+	margin-top: 20px;
 }
