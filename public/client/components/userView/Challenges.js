@@ -29,7 +29,6 @@ export default class Challenges extends React.Component {
   		challenges: this.state.challenges,
   		accepted: this.state.accepted
   	})
-
   }
 
   declineChallenge(deleted) {
@@ -55,7 +54,7 @@ export default class Challenges extends React.Component {
 	          		<th>Accept Challenge?</th>
 	          	</tr>
 	           	{this.state.challenges.map( (challenge, i) => {
-              	return (<Challenge key={i} challenge={challenge} user={challenge.user} invited={challenge.invited.join(', ')} 
+              	return (<Challenge key={i} challenge={challenge} user={challenge.user} invited={challenge.invited} 
               		exercise={challenge.exercise} date={challenge.time} location={challenge.location}
               		acceptChallenge ={this.acceptChallenge} declineChallenge ={this.declineChallenge} /> )
             	})}
