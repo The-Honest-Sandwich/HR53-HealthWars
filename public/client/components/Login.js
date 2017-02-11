@@ -14,7 +14,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <NavItem eventKey={1} href="#/loginpage">
+      <NavItem eventKey={1} href="#/loginpage" onClick={this.props.logout}>
         { this.props.signedInUser ? 'Logout' : 'Login' }
       </NavItem>
     )

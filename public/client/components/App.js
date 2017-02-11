@@ -22,6 +22,13 @@ export default class App extends React.Component {
     this.updateData();
   }
 
+  logout() {
+    this.setState({
+      currentUser: null,
+      signedInUser: null
+    });
+  }
+
   changeSignedInUser(user) {
     console.log('inside changeSignedInUser', user);
     var context = this;
@@ -68,7 +75,7 @@ export default class App extends React.Component {
     })
     return (
       <div>
-        <NavigationBar signedInUser={this.state.signedInUser}/>
+        <NavigationBar signedInUser={this.state.signedInUser} logout={this.logout.bind(this)}/>
         {children}
       </div>
     )
