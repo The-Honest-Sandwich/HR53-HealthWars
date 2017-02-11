@@ -4,6 +4,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
+// Jared change
+var passport = require('passport');
 
 var compiler = webpack(webpackConfig);
 var app = express();
@@ -13,11 +15,13 @@ app.use(require("webpack-hot-middleware")(compiler));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 app.use(require("webpack-dev-middleware")(compiler, {
     noInfo: true, publicPath: webpackConfig.output.publicPath
 }));
 
 app.use(express.static('public'));
+
 
 // ================================
 // DATA API ENDPOINT ROUTING
@@ -32,6 +36,9 @@ var achievementController = require('./dbmodules/achievement/achievementControll
 var challengesController = require('./dbmodules/challenges/challengesController')
 
 // === USER ROUTING === (SESSIONS SHOULD STORE A USER'S '_id' VALUE FROM MONGO)
+
+app.get('/api/users/signin', userController.signin);
+
 
 // Get all users
 app.get('/api/users', userController.getUsers);
@@ -83,6 +90,7 @@ app.post('/submitUnits', function(req, res) {
   console.log('body', req.body); //TODO: move data to DB
   res.end('');
 });
+
 
 // === CHALLENGES ROUTING ===
 
