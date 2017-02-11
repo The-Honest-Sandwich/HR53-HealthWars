@@ -54,7 +54,7 @@ export default class Challenges extends React.Component {
             	})}
 	          </tbody>
 	        </table>
-				<button className="btn btn-primary admin-button"><Link to="/newChallenge">Create New Challenge</Link></button>
+				<button className="btn btn-primary admin-button"><Link id="normalized-Link" to="/newChallenge">Create New Challenge</Link></button>
 			</div>
 		)
 	}

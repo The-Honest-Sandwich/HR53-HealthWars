@@ -7,24 +7,6 @@ body {
   color: #000;
 }
 
-#normalized-Link {
-  color: white ;
-
-}
-
-#normalized-Link:hover {
-  color: white;
-  text-decoration: none;
-}
-
-#map {
-  height: 400px;
-  width: 800px;
-  position: relative;
-  overflow: hidden;
-  left: 19%;
-}
-
 .line-separator{
   height:1px;
   background:#717171;
@@ -58,28 +40,23 @@ body {
 }
 
 #UserDescription {
-  float:left;
+	float:left;
   width: 1000px;
 }
 
-#newChallenge {
-  margin: 50px;
-  width: 700px;
-}
-
 #userpic {
-  width: 75;
+	width: 75;
 }
 #username {
-  width: 100;
+	width: 100;
 }
 .star {
-  float:left;
+	float:left;
   padding-bottom: 4px;
 }
 
 .stars {
-  float:left;
+	float:left;
 }
 
 .navbar {
@@ -97,7 +74,7 @@ body {
 
 .btn-primary {
   background-color: #1b5188;
-  margin-top: 20px;
+  margin-top: 20px; 
 }
 
 .btn-primary:hover {
@@ -105,7 +82,7 @@ body {
 }
 
 .unit-display {
-  font-size: 80px;
+	font-size: 80px;
 }
 
 .table {
@@ -115,8 +92,8 @@ body {
 }
 
 .table>tbody>tr>td {
-  vertical-align: inherit;
-  border-top: none;
+	vertical-align: inherit;
+	border-top: none;
 }
 
 .table>thead>tr>th {
@@ -125,7 +102,7 @@ body {
 }
 
 th {
-  font-size: 24px;
+	font-size: 24px;
 }
 
 .btn-toolbar .btn, .btn-toolbar .btn-group, .btn-toolbar .input-group {
@@ -133,13 +110,13 @@ th {
 }
 
 .texttd {
-  font-size: 18px;
-  padding: 6px;
-  text-align: left;
+	font-size: 18px;
+	padding: 6px;
+	text-align: left;
 }
 
 .navbar-default {
-  background-color: #1b5188;
+	background-color: #1b5188;
   border-color: #364584;
 }
 
@@ -153,7 +130,7 @@ th {
 }
 
 .navbar-default .navbar-nav>li>a:focus {
-  color: #fff;
+	color: #fff;
 }
 
 .navbar-default .navbar-brand {
@@ -181,14 +158,6 @@ th {
   margin-bottom: 10px;
 }
 
-/*.form {
-     text-align: center;
-    display: inline-block;
-    position: relative;
-    top: 32%;
-    left: 65%;
-}*/
-
 .exercise-dropdown {
   height: 34px;
   background-color: aliceblue;
@@ -213,33 +182,3 @@ table {
   padding-left: 10px;
   font-size: 24px;
 }
-
-.top-buffer {
-	margin-top: 100px;
-}
-
-.new-user-form {
-	margin-top: 30px;
-}
-
-.sign-in-form {
-	margin-top: 20px;
-
-a {
-  color: white;
-  font-size: 20px;
-   /*display: none;*/
-   text-decoration: none;
-}
-/*a:visited {
-    color: white;
-}
-a:active {
-  color: white;
-}*/
-a:hover {
-  color: white;
-  text-decoration: none;
-}
-
-
