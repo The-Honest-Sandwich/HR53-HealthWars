@@ -86,7 +86,9 @@ export default class AddUser extends React.Component {
             <h5>Sign-In</h5>
             <input className="form-control" type="text" name="username" placeholder="Username" ref="usernameSI" />
             <input className="form-control" type="password" name="password" placeholder="Password" ref="passwordSI" />
-            <button className="btn btn-primary admin-button" type="submit" value="Add User" onClick={this.handleSignInSubmit}><Link to="/user">Sign-In</Link></button>
+            <button className="btn btn-primary admin-button" type="submit" value="Add User" onClick={this.handleSignInSubmit}>
+              <Link id="normalized-Link" to="/user">Sign-In</Link>
+            </button>
           </form><br />
         <form className="form col-sm-offset-3 col-sm-6 new-user-form" onSubmit={this.addUser}>
             <h5>New User? Sign-Up</h5>
