@@ -95,10 +95,11 @@ export default class NewChallenge extends React.Component {
             </select>  OR  <input type="text" name="custom" placeholder="Custom" ref="custom" /><br/><br/>
             <input className="form-control" type="datetime-local" max="2999-12-31" min="2017-02-08" name="time" ref="time" />
             <input className="form-control" type="text" name="location" placeholder="location" ref="location" value={this.state.query} onChange={this.onChangeLocation}/>
+                         <input className="form-control" placeholder="Address for Challenege" value={this.state.loc} />
+
             <button className="btn btn-primary admin-button" type="submit" value="Add User">Create Challenge</button>
-          
+
           </form><br />
-            <h5>{this.state.loc}</h5>
         </div>
            <MapView str={this.state.query} renderAddress={this.renderAddress}/>
           
