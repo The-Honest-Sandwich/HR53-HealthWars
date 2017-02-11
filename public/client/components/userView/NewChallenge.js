@@ -46,7 +46,7 @@ export default class NewChallenge extends React.Component {
   }
   // Manually add a challenge to the database
   newChallenge(e) {
-       e.preventDefault();
+      e.preventDefault();
 
       var challengeObj =  {
         user: this.state.user.name,
@@ -83,7 +83,7 @@ export default class NewChallenge extends React.Component {
       <div>
      
         <div className='challenge-form' id="newChallenge">
-      <script src='http://maps.googleapis.com/maps/api/js?key=AIzaSyAI83WruY4-IgmbI3VdO29t64MfgUfO_ao&libraries=places&callback=initMap' />
+        <script src='http://maps.googleapis.com/maps/api/js?key=AIzaSyAI83WruY4-IgmbI3VdO29t64MfgUfO_ao&libraries=places&callback=initMap' />
 
           <form className="form" onSubmit={this.newChallenge}>
             <h3>New Challenge</h3>
@@ -94,14 +94,13 @@ export default class NewChallenge extends React.Component {
               <option key={i} value={exercise.toString()}>{exercise}</option>) }
             </select>  OR  <input type="text" name="custom" placeholder="Custom" ref="custom" /><br/><br/>
             <input className="form-control" type="datetime-local" max="2999-12-31" min="2017-02-08" name="time" ref="time" />
-            <input className="form-control" type="text" name="location" placeholder="location" ref="location" value={this.state.query} onChange={this.onChangeLocation}/>
-                         <input className="form-control" placeholder="Address for Challenege" value={this.state.loc} />
-
+            <input className="form-control" type="text" placeholder="location"  value={this.state.query} onChange={this.onChangeLocation}/>
+            <input className="form-control" type="text" name="location" ref="location" placeholder="Address for Challenege" value={this.state.loc} />
             <button className="btn btn-primary admin-button" type="submit" value="Add User">Create Challenge</button>
 
           </form><br />
         </div>
-           <MapView str={this.state.query} renderAddress={this.renderAddress}/>
+        <MapView str={this.state.query} renderAddress={this.renderAddress}/>
           
         </div>
     )
