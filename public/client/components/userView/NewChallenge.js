@@ -8,16 +8,22 @@ export default class NewChallenge extends React.Component {
     super(props);
     this.state = {
       exercises: [],
-      user: {name: 'Savy'}, 
+      user: this.props.currentUser, 
       loc: '',//****hardcoded for now
       query: ''
     };
     this.newChallenge = this.newChallenge.bind(this);
     this.renderAddress = this.renderAddress.bind(this);
     this.onChangeLocation = this.onChangeLocation.bind(this);
-
+    console.log('currentUser: ', this.state.user)
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser !== null) {
+      var user = nextProps.currentUser
+      this.setState({user: user});
+    }
+  }
 
   addData(item) {
     var currentData = this.state.exercises;

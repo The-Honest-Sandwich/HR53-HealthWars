@@ -18,20 +18,22 @@ export default class AddUser extends React.Component {
 
   handleSignInSubmit(e) {
     e.preventDefault();
-    // Build out the functionality to compare username and password before invoking changeSignedInUser and updating state.
-    // if (!this.refs.passwordSI.value) {
-    //   this.refs.passwordSI.placeholder.value = 'Please enter a password';
+    //  console.log('inside handleSignInSubmit');
+    // var user = {
+    //   username: this.refs.usernameSI.value,
+    //   password: this.refs.passwordSI.value
     // }
-    // var userURL = '/api/users/' + this.refs.usernameSI.value;
-    // axios.get('')
-    // axios.get('/api/users/signin').then(function(res) {
+    // var context = this;
+    // axios.post('/api/signin', user).then(function(res) {
     //   console.log('inside axios get');
-    //   if (res) {
+    //   if (res.data) {
+    //     console.log('inside res of axios post', res.data);
+    //     context.props.changeSignedInUser(context.refs.usernameSI.value);
     //   } else {
     //     console.log('this shit aint working');
     //   }
-//    })
-        this.props.changeSignedInUser(this.refs.usernameSI.value);
+    // })
+    this.props.changeSignedInUser(this.refs.usernameSI.value);
 
   }
 

@@ -61,6 +61,7 @@ export default class App extends React.Component {
         updateData: context.updateData.bind(context)
       })
     })
+    console.log('React.Children: ', children)
     return (
       <div>
         <NavigationBar />
