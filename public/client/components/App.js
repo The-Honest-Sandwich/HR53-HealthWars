@@ -11,13 +11,28 @@ export default class App extends React.Component {
       rounds: null,
       users: null,
       exercise: null,
-      currentUser: null
+      currentUser: null,
+      signedInUser: null
     }
   }
 
   // pulls all information from the DB and sets the states above which by default are null
   componentDidMount () {
+    console.log('inside componentDidMount');
     this.updateData();
+  }
+
+  changeSignedInUser(user) {
+    var context = this;
+    this.setState({
+      signedInUser: user
+    }, () => {
+      var signedInUserUrl = '/api/users/' + this.state.signedInUser;
+      console.log('signedInUserUrl', signedInUserUrl);
+      axios.get(signedInUserUrl).then(function(res) {
+        context.setState({currentUser: res.data});
+      });
+    });
   }
 
   updateData () {
@@ -31,7 +46,9 @@ export default class App extends React.Component {
     axios.get('/api/exercises').then(function(res) {
       context.setState({exercise: res.data});
     });
-    axios.get('/api/users/jfbriggs').then(function(res) {
+    var signedInUserUrl = '/api/users/' + this.state.signedInUser;
+    console.log('signedInUserUrl', signedInUserUrl);
+    axios.get(signedInUserUrl).then(function(res) {
       context.setState({currentUser: res.data});
     });
   }
@@ -46,6 +63,7 @@ export default class App extends React.Component {
         users: context.state.users,
         exercise: context.state.exercise,
         currentUser: context.state.currentUser,
+        changeSignedInUser: context.changeSignedInUser.bind(context),
         updateData: context.updateData.bind(context)
       })
     })
