@@ -24,14 +24,14 @@ export default class AddUser extends React.Component {
     // }
     // var userURL = '/api/users/' + this.refs.usernameSI.value;
     // axios.get('')
-    axios.get('/api/users/signin').then(function(res) {
-      console.log('inside axios get');
-      if (res) {
+    // axios.get('/api/users/signin').then(function(res) {
+    //   console.log('inside axios get');
+    //   if (res) {
+    //   } else {
+    //     console.log('this shit aint working');
+    //   }
+//    })
         this.props.changeSignedInUser(this.refs.usernameSI.value);
-      } else {
-        console.log('this shit aint working');
-      }
-    })
 
   }
 
