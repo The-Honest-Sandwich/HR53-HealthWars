@@ -33,6 +33,7 @@ var userController = require('./dbmodules/users/userController');
 var roundController = require('./dbmodules/rounds/roundController');
 var exerciseController = require('./dbmodules/exercises/exerciseController');
 var achievementController = require('./dbmodules/achievement/achievementController');
+var challengesController = require('./dbmodules/challenges/challengesController')
 
 // === USER ROUTING === (SESSIONS SHOULD STORE A USER'S '_id' VALUE FROM MONGO)
 
@@ -89,5 +90,14 @@ app.post('/submitUnits', function(req, res) {
   console.log('body', req.body); //TODO: move data to DB
   res.end('');
 });
+
+
+// === CHALLENGES ROUTING ===
+
+// Get all available challenges from DB
+app.get('/api/challenges', challengesController.getChallenges);
+
+// Create a new exercise (see schema for necessary fields)
+app.post('/api/challenges', challengesController.newChallenge);
 
 module.exports = app;
