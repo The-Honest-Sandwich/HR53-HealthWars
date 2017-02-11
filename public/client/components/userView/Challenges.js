@@ -93,8 +93,8 @@ export default class Challenges extends React.Component {
             	})}
 	          </tbody>
 	        </table>
-	        <br/>
-				<button className="btn btn-primary admin-button"><Link className="Link"  to={{ pathname: '/NewChallenge', query: { user: this.state.user } }}>Create New Challenge</Link></button>
+
+				<button className="btn btn-primary admin-button"><Link id="normalized-Link" to="/newChallenge">Create New Challenge</Link></button>
 			</div>
 		)
 	}
