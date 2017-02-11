@@ -28,11 +28,11 @@ export default class App extends React.Component {
     this.setState({
       signedInUser: user
     }, () => {
-      console.log('inside setState callback', this.state.signedInUser);
+      // console.log('inside setState callback', this.state.signedInUser);
       var signedInUserUrl = '/api/users/' + this.state.signedInUser;
       axios.get(signedInUserUrl).then(function(res) {
         context.setState({currentUser: res.data}, function() {
-          console.log('currentUser', this.state.currentUser);
+          // console.log('currentUser', this.state.currentUser);
         });
       });
     });

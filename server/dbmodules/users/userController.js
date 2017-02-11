@@ -96,18 +96,18 @@ module.exports = {
   signin: function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
-    console.log('username', username, 'password', password);
+    // console.log('username', username, 'password', password);
 
     return findUser({username: username})
       .then(function(user) {
         if (!user) {
           next(new Error('User does not exist'));
         } else {
-          console.log('inside else block of signin function');
+          // console.log('inside else block of signin function');
           // console.log('comparePasswords', user.comparePasswords(password));
           user.comparePasswords(password)
           .then(function(foundUser) {
-            console.log('inside then block', foundUser);
+            // console.log('inside then block', foundUser);
             if (foundUser) {
               res.send(foundUser);
               // var token = jwt.encode(user, 'secret');
