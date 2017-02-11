@@ -18,21 +18,23 @@ export default class AddUser extends React.Component {
 
   handleSignInSubmit(e) {
     e.preventDefault();
-    
-    // Build out the functionality to compare username and password before invoking changeSignedInUser and updating state.
-    // if (!this.refs.passwordSI.value) {
-    //   this.refs.passwordSI.placeholder.value = 'Please enter a password';
-    // }
-    // var userURL = '/api/users/' + this.refs.usernameSI.value;
-    // axios.get('')
-    // axios.get('/api/users/signin').then(function(res) {
-    //   console.log('inside axios get');
-    //   if (res) {
-    //   } else {
-    //     console.log('this shit aint working');
-    //   }
-//    })
-        this.props.changeSignedInUser(this.refs.usernameSI.value)
+
+    // console.log('inside handleSignInSubmit');
+    var user = {
+      username: this.refs.usernameSI.value,
+      password: this.refs.passwordSI.value
+    }
+    var context = this;
+    axios.post('/api/signin', user).then(function(res) {
+      // console.log('inside axios get');
+      if (res.data) {
+        // console.log('inside res of axios post', res.data);
+        // console.log('context', user.username);
+        context.props.changeSignedInUser(user.username);
+      } else {
+        console.log('this shit aint working');
+      }
+    })
 
   }
 
@@ -83,7 +85,7 @@ export default class AddUser extends React.Component {
           <form className="form col-sm-offset-3 col-sm-6 sign-in-form">
             <h5>Sign-In</h5>
             <input className="form-control" type="text" name="username" placeholder="Username" ref="usernameSI" />
-            <input className="form-control" type="text" name="password" placeholder="Password" ref="passwordSI" />
+            <input className="form-control" type="password" name="password" placeholder="Password" ref="passwordSI" />
             <button className="btn btn-primary admin-button" type="submit" value="Add User" onClick={this.handleSignInSubmit}><Link to="/user">Sign-In</Link></button>
           </form><br />
         <form className="form col-sm-offset-3 col-sm-6 new-user-form" onSubmit={this.addUser}>

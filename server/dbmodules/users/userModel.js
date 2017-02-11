@@ -41,6 +41,11 @@ var userSchema = new mongoose.Schema({
 
   challenges: {
     type: [String]
+  },
+
+  email: {
+    type: String,
+    required: true
   }
 
 });
