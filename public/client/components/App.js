@@ -18,7 +18,6 @@ export default class App extends React.Component {
 
   // pulls all information from the DB and sets the states above which by default are null
   componentDidMount () {
-    console.log('inside componentDidMount');
     this.updateData();
   }
 
@@ -28,7 +27,7 @@ export default class App extends React.Component {
       signedInUser: user
     }, () => {
       var signedInUserUrl = '/api/users/' + this.state.signedInUser;
-      console.log('signedInUserUrl', signedInUserUrl);
+      // console.log('signedInUserUrl', signedInUserUrl);
       axios.get(signedInUserUrl).then(function(res) {
         context.setState({currentUser: res.data});
       });
@@ -45,11 +44,6 @@ export default class App extends React.Component {
     });
     axios.get('/api/exercises').then(function(res) {
       context.setState({exercise: res.data});
-    });
-    var signedInUserUrl = '/api/users/' + this.state.signedInUser;
-    console.log('signedInUserUrl', signedInUserUrl);
-    axios.get(signedInUserUrl).then(function(res) {
-      context.setState({currentUser: res.data});
     });
   }
 
