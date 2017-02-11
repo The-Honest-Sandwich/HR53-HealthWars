@@ -18,25 +18,24 @@ export default class AddUser extends React.Component {
 
   handleSignInSubmit(e) {
     e.preventDefault();
-    //  console.log('inside handleSignInSubmit');
-    // var user = {
-    //   username: this.refs.usernameSI.value,
-    //   password: this.refs.passwordSI.value
-    // }
-    // var context = this;
-    // axios.post('/api/signin', user).then(function(res) {
-    //   console.log('inside axios get');
-    //   if (res.data) {
-    //     console.log('inside res of axios post', res.data);
-    //     context.props.changeSignedInUser(context.refs.usernameSI.value);
-    //   } else {
-    //     console.log('this shit aint working');
-    //   }
-    // })
-    this.props.changeSignedInUser(this.refs.usernameSI.value);
+    // console.log('inside handleSignInSubmit');
+    var user = {
+      username: this.refs.usernameSI.value,
+      password: this.refs.passwordSI.value
+    }
+    var context = this;
+    axios.post('/api/signin', user).then(function(res) {
+      // console.log('inside axios get');
+      if (res.data) {
+        // console.log('inside res of axios post', res.data);
+        // console.log('context', user.username);
+        context.props.changeSignedInUser(user.username);
+      } else {
+        console.log('this shit aint working');
+      }
+    })
 
   }
-
 
   // Manually add a user to the database
   addUser(e) {
@@ -82,10 +81,10 @@ export default class AddUser extends React.Component {
   render() {
     return (
         <div className="admin-form">
-          <form className="form col-sm-offset-3 col-sm-6 sign-in-form" onSubmit={this.addUser}>
+          <form className="form col-sm-offset-3 col-sm-6 sign-in-form">
             <h5>Sign-In</h5>
             <input className="form-control" type="text" name="username" placeholder="Username" ref="usernameSI" />
-            <input className="form-control" type="text" name="password" placeholder="Password" ref="passwordSI" />
+            <input className="form-control" type="password" name="password" placeholder="Password" ref="passwordSI" />
             <button className="btn btn-primary admin-button" type="submit" value="Add User" onClick={this.handleSignInSubmit}><Link to="/user">Sign-In</Link></button>
           </form><br />
         <form className="form col-sm-offset-3 col-sm-6 new-user-form" onSubmit={this.addUser}>
@@ -101,39 +100,3 @@ export default class AddUser extends React.Component {
     )
   }
 }
-
-
-// // Jared change
-// import React from 'react';
-// import axios from 'axios';
-// import { Navbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
-//
-// export default class LoginPage extends React.Component {
-//   constructor(props) {
-//     super(props)
-//
-//     this.state = {
-//       Something: 'Awesome'
-//     }
-//   }
-//
-//   componentDidMount() {
-//     console.log('at least I work');
-//   }
-  // <div>
-  //   <a className="btn btn-block btn-social btn-google">
-  //     <span className="fa fa-google">Sign in with Google</span>
-  //   </a>
-  // </div>
-
-  // <div className="container-fluid col-lg-2 col-lg-offset-5 top-buffer">
-  //   <button onClick={()=>{axios.get('/login/google')}}>Login with Google</button>
-  // </div>
-
-  // <div className="g-signin2 container-fluid col-lg-2 col-lg-offset-5 top-buffer" data-onsuccess="onSignIn"></div>
-//   render() {
-//     return (
-//
-//     )
-//   }
-// }

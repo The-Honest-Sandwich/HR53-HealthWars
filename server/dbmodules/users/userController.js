@@ -94,25 +94,28 @@ module.exports = {
   },
 
   signin: function(req, res, next) {
-    var username = req.username;
-    var password = req.password;
-    console.log('username', username, 'password', password);
+    var username = req.body.username;
+    var password = req.body.password;
+    // console.log('username', username, 'password', password);
 
-    findUser({username: username})
+    return findUser({username: username})
       .then(function(user) {
         if (!user) {
           next(new Error('User does not exist'));
         } else {
-          console.log('inside else block of signin function');
-          return user.comparePasswords(password)
-          // .then(function(foundUser) {
-          //   if (foundUser) {
-          //     var token = jwt.encode(user, 'secret');
-          //     res.json({token: token})
-          //   } else {
-          //     return next(new Error('No user'));
-          //   }
-          // });
+          // console.log('inside else block of signin function');
+          // console.log('comparePasswords', user.comparePasswords(password));
+          user.comparePasswords(password)
+          .then(function(foundUser) {
+            // console.log('inside then block', foundUser);
+            if (foundUser) {
+              res.send(foundUser);
+              // var token = jwt.encode(user, 'secret');
+              // res.json({token: token})
+            } else {
+              return next(new Error('No user'));
+            }
+          });
         }
       })
       .fail(function(error) {

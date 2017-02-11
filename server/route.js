@@ -37,7 +37,8 @@ var challengesController = require('./dbmodules/challenges/challengesController'
 
 // === USER ROUTING === (SESSIONS SHOULD STORE A USER'S '_id' VALUE FROM MONGO)
 
-app.get('/api/users/signin', userController.signin);
+// console.log('inside signin route', req.body);
+app.post('/api/signin', userController.signin);
 
 
 // Get all users

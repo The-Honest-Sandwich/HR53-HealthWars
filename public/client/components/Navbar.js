@@ -21,7 +21,7 @@ export default class NavigationBar extends React.Component {
             <NavItem eventKey={4} href="#/admin">Admin Dashboard</NavItem>
           </Nav>
           <Nav pullRight>
-            <Login />
+            <Login signedInUser={this.props.signedInUser} logout={this.props.logout}/>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

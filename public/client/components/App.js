@@ -22,14 +22,25 @@ export default class App extends React.Component {
     this.updateData();
   }
 
+  logout() {
+    this.setState({
+      currentUser: null,
+      signedInUser: null
+    });
+  }
+
   changeSignedInUser(user) {
+    console.log('inside changeSignedInUser', user);
     var context = this;
     this.setState({
       signedInUser: user
     }, () => {
+      // console.log('inside setState callback', this.state.signedInUser);
       var signedInUserUrl = '/api/users/' + this.state.signedInUser;
       axios.get(signedInUserUrl).then(function(res) {
-        context.setState({currentUser: res.data});
+        context.setState({currentUser: res.data}, function() {
+          // console.log('currentUser', this.state.currentUser);
+        });
       });
     });
   }
@@ -57,6 +68,7 @@ export default class App extends React.Component {
         users: context.state.users,
         exercise: context.state.exercise,
         currentUser: context.state.currentUser,
+        signedInUser: context.state.signedInUser,
         changeSignedInUser: context.changeSignedInUser.bind(context),
         updateData: context.updateData.bind(context)
       })
@@ -64,7 +76,7 @@ export default class App extends React.Component {
     console.log('React.Children: ', children)
     return (
       <div>
-        <NavigationBar />
+        <NavigationBar signedInUser={this.state.signedInUser} logout={this.logout.bind(this)}/>
         {children}
       </div>
     )
