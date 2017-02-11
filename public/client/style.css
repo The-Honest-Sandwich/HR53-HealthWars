@@ -7,8 +7,16 @@ body {
   color: #000;
 }
 
+#map {
+  height: 400px;
+  width: 800px;
+  position: relative;
+  overflow: hidden;
+  left: 19%;
+}
+
 .line-separator{
-  height:1px;
+  height:1px;hid
   background:#717171;
   border-bottom:1px solid #313030;
 }
@@ -175,6 +183,14 @@ th {
 
 .form-control {
   margin-bottom: 10px;
+}
+
+.form {
+     text-align: center;
+    display: inline-block;
+    position: relative;
+    top: 32%;
+    left: 65%;
 }
 
 .exercise-dropdown {
