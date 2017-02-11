@@ -22,6 +22,13 @@ export default class App extends React.Component {
     this.updateData();
   }
 
+  logout() {
+    this.setState({
+      currentUser: null,
+      signedInUser: null
+    });
+  }
+
   changeSignedInUser(user) {
     console.log('inside changeSignedInUser', user);
     var context = this;
@@ -61,13 +68,14 @@ export default class App extends React.Component {
         users: context.state.users,
         exercise: context.state.exercise,
         currentUser: context.state.currentUser,
+        signedInUser: context.state.signedInUser,
         changeSignedInUser: context.changeSignedInUser.bind(context),
         updateData: context.updateData.bind(context)
       })
     })
     return (
       <div>
-        <NavigationBar />
+        <NavigationBar signedInUser={this.state.signedInUser} logout={this.logout.bind(this)}/>
         {children}
       </div>
     )

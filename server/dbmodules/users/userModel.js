@@ -41,6 +41,11 @@ var userSchema = new mongoose.Schema({
 
   achievements: {
     type: [String]
+  },
+
+  email: {
+    type: String,
+    required: true
   }
 
 });
