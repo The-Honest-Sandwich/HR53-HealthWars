@@ -39,8 +39,13 @@ var userSchema = new mongoose.Schema({
     type: [Number]
   },
 
-  achievements: {
+  challenges: {
     type: [String]
+  },
+
+  email: {
+    type: String,
+    required: true
   }
 
 });
