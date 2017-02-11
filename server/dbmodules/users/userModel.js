@@ -1,3 +1,4 @@
+var Q = require('q');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var SALT_WORK_FACTOR = 10;
@@ -6,7 +7,8 @@ var userSchema = new mongoose.Schema({
 
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
   },
 
   username: {
@@ -45,12 +47,14 @@ var userSchema = new mongoose.Schema({
 
 userSchema.methods.comparePasswords = function (candidatePassword) {
   var savedPassword = this.password;
-  return bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {
-    if (err) {
-      reject(err);
-    } else {
-      resolve(isMatch);
-    }
+  return Q.Promise(function(resolve, reject) {
+    bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(isMatch);
+      }
+    });
   });
 };
 
