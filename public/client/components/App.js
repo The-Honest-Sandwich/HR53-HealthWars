@@ -61,13 +61,14 @@ export default class App extends React.Component {
         users: context.state.users,
         exercise: context.state.exercise,
         currentUser: context.state.currentUser,
+        signedInUser: context.state.signedInUser,
         changeSignedInUser: context.changeSignedInUser.bind(context),
         updateData: context.updateData.bind(context)
       })
     })
     return (
       <div>
-        <NavigationBar />
+        <NavigationBar signedInUser={this.state.signedInUser}/>
         {children}
       </div>
     )

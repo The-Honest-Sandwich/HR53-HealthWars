@@ -10,26 +10,12 @@ export default class Login extends React.Component {
     this.state = {
       LoginLogout: 'Login'
     }
-
-    this.updateState = this.updateState.bind(this);
-  }
-
-  updateState() {
-    if (this.state.LoginLogout === 'Login') {
-      this.setState({
-        LoginLogout: 'Logout'
-      });
-    } else {
-      this.setState({
-        LoginLogout: 'Login'
-      });
-    }
   }
 
   render() {
     return (
-      <NavItem eventKey={1} href="#/loginpage" onClick={this.updateState}>
-        {this.state.LoginLogout}
+      <NavItem eventKey={1} href="#/loginpage">
+        { this.props.signedInUser ? 'Logout' : 'Login' }
       </NavItem>
     )
   }
