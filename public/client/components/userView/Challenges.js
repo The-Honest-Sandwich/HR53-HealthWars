@@ -8,6 +8,7 @@ export default class Challenges extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+    	user: this.props.user,
     	challenges: [],
     	accepted: []
     };
@@ -18,6 +19,21 @@ export default class Challenges extends React.Component {
  componentDidMount () {
   var context = this;
     axios.get('/api/challenges').then(function(res) {
+    	//sort out only user invited challenges
+    	// console.log(res.data)
+    	// var challenges = [];
+    	// var accepted = [];
+    	// res.data.forEach(function(challenge) {
+    	// 	if (challenge.user === context.state.user) {
+    	// 		accepted.push(challenge);
+    	// 	}
+    	// 	challenge.invited.forEach(function(user) {
+    	// 		if(user === context.state.user) {
+    	// 			challenges.push(challenge);
+    	// 		}
+    	// 	});
+    	// });
+    	// console.log(challenges);
       context.setState({challenges: res.data});
     });
   }
@@ -77,8 +93,8 @@ export default class Challenges extends React.Component {
             	})}
 	          </tbody>
 	        </table>
-				<button className="btn btn-primary admin-button"><Link id="normalized-Link" to="/newChallenge">Create New Challenge</Link></button>
 
+				<button className="btn btn-primary admin-button"><Link id="normalized-Link" to="/newChallenge">Create New Challenge</Link></button>
 			</div>
 		)
 	}

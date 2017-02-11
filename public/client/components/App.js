@@ -73,6 +73,7 @@ export default class App extends React.Component {
         updateData: context.updateData.bind(context)
       })
     })
+    console.log('React.Children: ', children)
     return (
       <div>
         <NavigationBar signedInUser={this.state.signedInUser} logout={this.logout.bind(this)}/>
