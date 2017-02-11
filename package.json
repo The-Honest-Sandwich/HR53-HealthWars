@@ -45,9 +45,19 @@
     "webpack-hot-middleware": "^2.15.0"
   },
   "devDependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "googleapis": "^16.1.0",
     "jasmine-core": "^2.5.2",
     "karma": "^1.4.1",
     "karma-chrome-launcher": "^2.0.0",
-    "karma-jasmine": "^1.1.0"
+    "karma-jasmine": "^1.1.0",
+    "oauth": "^0.9.15",
+    "passport": "^0.3.2",
+    "passport-google-oauth": "^1.0.0",
+    "passport-google-oauth20": "^1.0.0",
+    "passport-oauth2": "^1.4.0",
+    "passport-strategy": "^1.0.0",
+    "uid2": "0.0.3",
+    "utils-merge": "^1.0.0"
   }
 }

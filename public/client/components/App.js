@@ -28,7 +28,6 @@ export default class App extends React.Component {
       signedInUser: user
     }, () => {
       var signedInUserUrl = '/api/users/' + this.state.signedInUser;
-      console.log('signedInUserUrl', signedInUserUrl);
       axios.get(signedInUserUrl).then(function(res) {
         context.setState({currentUser: res.data});
       });
@@ -45,11 +44,6 @@ export default class App extends React.Component {
     });
     axios.get('/api/exercises').then(function(res) {
       context.setState({exercise: res.data});
-    });
-    var signedInUserUrl = '/api/users/' + this.state.signedInUser;
-    console.log('signedInUserUrl', signedInUserUrl);
-    axios.get(signedInUserUrl).then(function(res) {
-      context.setState({currentUser: res.data});
     });
   }
 

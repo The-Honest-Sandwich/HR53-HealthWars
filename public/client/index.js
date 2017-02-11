@@ -9,7 +9,7 @@ import Overview from './components/overview/Overview';
 import Dashboard from './components/adminDashboard/Dashboard';
 import LoginPage from './components/LoginPage';
 import NewChallenge from './components/userView/NewChallenge';
-  
+
 render((
   <Router history={hashHistory}>
     <Route component={App}>

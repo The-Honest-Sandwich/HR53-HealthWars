@@ -2,6 +2,7 @@ import React from 'react';
 import UserDescription from './UserDescription';
 import Week from './Week';
 import Star from './Star';
+import Login from '../Login';
 import Challenges from './Challenges';
 
 export default class UserView extends React.Component {
@@ -44,11 +45,10 @@ export default class UserView extends React.Component {
 
       return (
 
-        <h3>LOADING</h3>
+        <Login />
 
       )
     }
 
   }
 }
-

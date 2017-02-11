@@ -13,7 +13,7 @@ module.exports = {
     return createUser(req.body).then(function(user) {
       if (user) {
         res.json(user);
-      } 
+      }
       next();
     }).fail(function(err){
       next(err);
@@ -30,7 +30,7 @@ module.exports = {
       next(err);
     });
   },
-  
+
   getUser : function(req, res, next) {
     return findUser({username: req.params.username}).then(function(user){
       if(user) {
@@ -91,6 +91,33 @@ module.exports = {
       console.log(err);
       next(err);
     });
+  },
+
+  signin: function(req, res, next) {
+    var username = req.username;
+    var password = req.password;
+    console.log('username', username, 'password', password);
+
+    findUser({username: username})
+      .then(function(user) {
+        if (!user) {
+          next(new Error('User does not exist'));
+        } else {
+          console.log('inside else block of signin function');
+          return user.comparePasswords(password)
+          // .then(function(foundUser) {
+          //   if (foundUser) {
+          //     var token = jwt.encode(user, 'secret');
+          //     res.json({token: token})
+          //   } else {
+          //     return next(new Error('No user'));
+          //   }
+          // });
+        }
+      })
+      .fail(function(error) {
+        next(error);
+      });
   }
 
 };
