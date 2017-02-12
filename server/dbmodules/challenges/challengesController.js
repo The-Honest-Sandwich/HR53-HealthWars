@@ -20,11 +20,24 @@ module.exports = {
   },
 
   getChallenges : function(req, res, next) {
-    return findChallenges(req.body)
+    console.log('currentUser name: ', req.params.user)
+    return findChallenges({invited: req.params.user})
     .then(function(challenges){
       if(challenges) {
         res.json(challenges);
       }
+      next();
+    }).fail(function(err){
+      next(err);
+    });
+  },
+
+  deleteChallenge : function(req, res, next) {
+    return findChallenge(req.body).remove().exec()
+    .then(function(challenge) {
+      if (challenge) {
+        res.json(challenge);
+      } 
       next();
     }).fail(function(err){
       next(err);
