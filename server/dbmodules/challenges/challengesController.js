@@ -1,5 +1,7 @@
 var Challenge = require('./challengesModel.js');
 var Q = require('q');
+var axios = require('axios');
+// var nodemailer = require('nodemailer')
 
 var findChallenge = Q.nbind(Challenge.findOne, Challenge);
 var createChallenge = Q.nbind(Challenge.create, Challenge);
@@ -32,6 +34,7 @@ module.exports = {
     });
   },
 
+
   deleteChallenge : function(req, res, next) {
     return findChallenge(req.body).remove().exec()
     .then(function(challenge) {
@@ -43,5 +46,6 @@ module.exports = {
       next(err);
     });
   }
+
 
 };

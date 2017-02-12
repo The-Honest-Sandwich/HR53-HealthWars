@@ -49,11 +49,13 @@
   },
   "devDependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "dateformat": "^2.0.0",
     "googleapis": "^16.1.0",
     "jasmine-core": "^2.5.2",
     "karma": "^1.4.1",
     "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
+    "nodemailer": "^3.0.2",
     "oauth": "^0.9.15",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
