@@ -6,6 +6,7 @@ var path = require('path');
 var app = express();
 // Jared change
 var passport = require('passport');
+var nodemailer = require('nodemailer');
 
 var compiler = webpack(webpackConfig);
 var app = express();
@@ -100,5 +101,38 @@ app.get('/api/challenges', challengesController.getChallenges);
 
 // Create a new exercise (see schema for necessary fields)
 app.post('/api/challenges', challengesController.newChallenge);
+
+// === EMAIL ROUTING ===
+
+app.post('/email', function(req, res) {
+	var temp = req.url.split('=');
+	var email = temp[1];
+	
+	let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'CoonsiderateRacoons@gmail.com',
+      pass: 'HR4Life!'
+    }
+	});
+
+	// setup email data with unicode symbols
+	let mailOptions = {
+    from: '"HealthWars" <CoonsiderateRacoons@gmail.com>', // sender address
+    to: email, // list of receivers
+    subject: 'You have been challeneged in HealthWars!', // Subject line
+    text: 'Accept or deny the challenge on HealthWars to determine your fate!', // plain text body
+    html: 'Accept or deny the challenge on HealthWars to determine your fate!' // html body
+	};
+	// send mail with defined transport object
+	transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log('Message %s sent: %s', info.messageId, info.response);
+	});
+
+	res.end();
+})
 
 module.exports = app;
