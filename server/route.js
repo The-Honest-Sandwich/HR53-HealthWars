@@ -105,7 +105,6 @@ app.get('/api/challenges/delete/', challengesController.deleteChallenge);
 // Create a new exercise (see schema for necessary fields)
 app.post('/api/challenges', challengesController.newChallenge);
 
-<<<<<<< HEAD
 // === ACCEPTED ROUTING ===
 
 // Get all available challenges from DB
@@ -113,7 +112,7 @@ app.get('/api/accepted/:user/', acceptedController.getAccepteds);
 
 // Create a new exercise (see schema for necessary fields)
 app.post('/api/accepted', acceptedController.newAccepted);
-=======
+
 // === EMAIL ROUTING ===
 
 app.post('/email', function(req, res) {
@@ -146,6 +145,6 @@ app.post('/email', function(req, res) {
 
 	res.end();
 })
->>>>>>> ee2545a07e4caed5ef27701d8554d58a540cd35c
+
 
 module.exports = app;
