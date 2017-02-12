@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var challengeSchema = new mongoose.Schema({
+var acceptedSchema = new mongoose.Schema({
 
   user: {
     type: String,
@@ -29,4 +29,4 @@ var challengeSchema = new mongoose.Schema({
   
 });
 
-module.exports = mongoose.model( 'Challenge', challengeSchema);
+module.exports = mongoose.model( 'Accepted', acceptedSchema);

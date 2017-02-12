@@ -18,27 +18,21 @@ export default class Challenges extends React.Component {
 
  componentDidMount () {
   var context = this;
-    axios.get('/api/challenges').then(function(res) {
-    	//sort out only user invited challenges
-    	// console.log(res.data)
-    	// var challenges = [];
-    	// var accepted = [];
-    	// res.data.forEach(function(challenge) {
-    	// 	if (challenge.user === context.state.user) {
-    	// 		accepted.push(challenge);
-    	// 	}
-    	// 	challenge.invited.forEach(function(user) {
-    	// 		if(user === context.state.user) {
-    	// 			challenges.push(challenge);
-    	// 		}
-    	// 	});
-    	// });
-    	// console.log(challenges);
+    axios.get('/api/challenges/'+ this.state.user.name)
+    .then(function(res) {
       context.setState({challenges: res.data});
+    });
+    axios.get('/api/accepted/'+ this.state.user.name)
+    .then(function(res) {
+      context.setState({accepted: res.data});
     });
   }
 
   acceptChallenge(added) {
+  	/////////////////////////
+  	// refactor to add to accepted
+  	// and delete from challenges
+  	////////////////////////
   	this.state.accepted.push(added)
   	this.state.challenges.splice(this.state.challenges.indexOf(added), 1);
   	this.setState({
@@ -48,6 +42,9 @@ export default class Challenges extends React.Component {
   }
 
   declineChallenge(deleted) {
+  	 /////////////////////////
+  	// refactor to delete from challenges
+  	////////////////////////
  		this.state.challenges.splice(this.state.challenges.indexOf(deleted), 1);
   	this.setState({
   		challenges: this.state.challenges,
