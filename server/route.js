@@ -97,20 +97,18 @@ app.post('/submitUnits', function(req, res) {
 
 // === CHALLENGES ROUTING ===
 
-// Get all available challenges from DB
 app.get('/api/challenges/:user/', challengesController.getChallenges);
+
+app.get('/api/challenges/userChallenges/:user/', challengesController.getUserChallenges);
 
 app.get('/api/challenges/delete/', challengesController.deleteChallenge);
 
-// Create a new exercise (see schema for necessary fields)
 app.post('/api/challenges', challengesController.newChallenge);
 
 // === ACCEPTED ROUTING ===
 
-// Get all available challenges from DB
 app.get('/api/accepted/:user/', acceptedController.getAccepteds);
 
-// Create a new exercise (see schema for necessary fields)
 app.post('/api/accepted', acceptedController.newAccepted);
 
 // === EMAIL ROUTING ===
