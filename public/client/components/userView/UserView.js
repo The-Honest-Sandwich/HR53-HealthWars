@@ -2,6 +2,8 @@ import React from 'react';
 import UserDescription from './UserDescription';
 import Week from './Week';
 import Star from './Star';
+import Login from '../Login';
+import Challenges from './Challenges';
 
 export default class UserView extends React.Component {
   constructor(props) {
@@ -35,18 +37,18 @@ export default class UserView extends React.Component {
               return <Week key={i} weekInfo={num} weekNum={i} />
             })}
           </tbody>
-        </table>
+        </table> <br/> <br/>
+        <Challenges user={this.state.currentUser}/>
       </div>
       )
     } else {
 
       return (
 
-        <h3>LOADING</h3>
+        <Login />
 
       )
     }
 
   }
 }
-

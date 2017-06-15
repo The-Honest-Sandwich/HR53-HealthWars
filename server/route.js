@@ -4,6 +4,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var app = express();
+// Jared change
+var passport = require('passport');
+var nodemailer = require('nodemailer');
 
 var compiler = webpack(webpackConfig);
 var app = express();
@@ -13,11 +16,13 @@ app.use(require("webpack-hot-middleware")(compiler));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 app.use(require("webpack-dev-middleware")(compiler, {
     noInfo: true, publicPath: webpackConfig.output.publicPath
 }));
 
 app.use(express.static('public'));
+
 
 // ================================
 // DATA API ENDPOINT ROUTING
@@ -29,8 +34,14 @@ var userController = require('./dbmodules/users/userController');
 var roundController = require('./dbmodules/rounds/roundController');
 var exerciseController = require('./dbmodules/exercises/exerciseController');
 var achievementController = require('./dbmodules/achievement/achievementController');
+var challengesController = require('./dbmodules/challenges/challengesController')
+var acceptedController = require('./dbmodules/accepted/acceptedController')
 
 // === USER ROUTING === (SESSIONS SHOULD STORE A USER'S '_id' VALUE FROM MONGO)
+
+// console.log('inside signin route', req.body);
+app.post('/api/signin', userController.signin);
+
 
 // Get all users
 app.get('/api/users', userController.getUsers);
@@ -82,5 +93,56 @@ app.post('/submitUnits', function(req, res) {
   console.log('body', req.body); //TODO: move data to DB
   res.end('');
 });
+
+
+// === CHALLENGES ROUTING ===
+
+app.get('/api/challenges/:user/', challengesController.getChallenges);
+
+app.get('/api/challenges/userChallenges/:user/', challengesController.getUserChallenges);
+
+app.get('/api/challenges/delete/', challengesController.deleteChallenge);
+
+app.post('/api/challenges', challengesController.newChallenge);
+
+// === ACCEPTED ROUTING ===
+
+app.get('/api/accepted/:user/', acceptedController.getAccepteds);
+
+app.post('/api/accepted', acceptedController.newAccepted);
+
+// === EMAIL ROUTING ===
+
+app.post('/email', function(req, res) {
+	var temp = req.url.split('=');
+	var email = temp[1];
+	
+	let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'CoonsiderateRacoons@gmail.com',
+      pass: 'HR4Life!'
+    }
+	});
+
+	// setup email data with unicode symbols
+	let mailOptions = {
+    from: '"HealthWars" <CoonsiderateRacoons@gmail.com>', // sender address
+    to: email, // list of receivers
+    subject: 'You have been challeneged in HealthWars!', // Subject line
+    text: 'Accept or deny the challenge on HealthWars to determine your fate!', // plain text body
+    html: 'Accept or deny the challenge on HealthWars to determine your fate!' // html body
+	};
+	// send mail with defined transport object
+	transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log('Message %s sent: %s', info.messageId, info.response);
+	});
+
+	res.end();
+})
+
 
 module.exports = app;

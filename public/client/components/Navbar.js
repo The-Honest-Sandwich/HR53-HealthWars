@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
 import { Link } from 'react-router'
+import Login from './Login';
 
 export default class NavigationBar extends React.Component {
   render() {
@@ -20,7 +21,7 @@ export default class NavigationBar extends React.Component {
             <NavItem eventKey={4} href="#/admin">Admin Dashboard</NavItem>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={1} href="#">Logout</NavItem>
+            <Login signedInUser={this.props.signedInUser} logout={this.props.logout}/>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
